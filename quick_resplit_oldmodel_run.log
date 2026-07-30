@@ -1,0 +1,36 @@
+Found 157 images (model=models/best.pt, test_dir=/home/shashwatkumar/Testing/container_ocr_test/container.v2i.yolov11.resplit/test/images, sample_file=/home/shashwatkumar/Testing/container_ocr_test/quick_sample_set_resplit.txt)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[CHECKPOINT 100/157] 1088s elapsed | avg 10.9s/img | pass so far: 56 | fail so far: 45 | tiers: Tier1-exact:23, Tier1b-recovery:13, Tier2-exact:2, Tier2-recovery:3, Tier3-fallback-novalid:10, Tier4-confusion:5 | checkpoint CSV written (101 rows)
+[CHECKPOINT 157/157] 1644s elapsed | avg 10.5s/img | pass so far: 94 | fail so far: 76 | tiers: Tier1-exact:29, Tier1b-recovery:32, Tier2-exact:3, Tier2-recovery:4, Tier3-Pass1:1, Tier3-fallback-novalid:13, Tier4-confusion:12 | checkpoint CSV written (170 rows)
+
+=== BENCHMARK RESULTS (LIVE, RESPLIT) ===
+Model:            models/best.pt
+Total images:     157
+YOLO detected:    157 (100.0%)
+OCR read code:    161 (102.5% of detected)
+ISO 6346 valid:   94 / 157
+No detection:     0 (0.0%)
+
+--- Tier breakdown (passing rows only) ---
+  Tier1b-recovery: 32
+  Tier1-exact: 29
+  Tier3-fallback-novalid: 13
+  Tier4-confusion: 12
+  Tier2-recovery: 4
+  Tier2-exact: 3
+  Tier3-Pass1: 1
+
+Total time:       1644s | Avg per image: 10.5s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/benchmark_results_quick_resplit_oldmodel.csv
+RUN COMPLETED UNINTERRUPTED

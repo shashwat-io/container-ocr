@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>User Management - Container Scanning System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; }
+        .search-input { padding: 10px; border: 1px solid #ddd; border-radius: 5px; flex: 1; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-warning { background: #ffc107; color: black; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .user-table { background: white; border-radius: 8px; overflow: hidden; }
+        .table-header { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr 1fr 120px; background: #f8f9fa; padding: 15px; border-bottom: 2px solid #dee2e6; }
+        .table-row { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr 1fr 120px; padding: 15px; border-bottom: 1px solid #dee2e6; align-items: center; }
+        .table-row:hover { background: #f8f9fa; }
+        .user-info { font-weight: bold; }
+        .user-email { color: #666; font-size: 14px; }
+        .role-badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+        .role-admin { background: #dc3545; color: white; }
+        .role-user { background: #6c757d; color: white; }
+        .status-badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 12px; }
+        .status-active { background: #d4edda; color: #155724; }
+        .status-inactive { background: #f8d7da; color: #721c24; }
+        .actions { display: flex; gap: 5px; }
+        .flash-messages { margin-bottom: 20px; }
+        .flash { padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+        .flash.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flash.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .pagination { display: flex; justify-content: center; margin-top: 20px; gap: 5px; }
+        .page-link { padding: 8px 12px; border: 1px solid #dee2e6; background: white; cursor: pointer; text-decoration: none; }
+        .page-link.active { background: #007bff; color: white; border-color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>User Management</h1>
+            <div>
+                <a href="/admin/users/create" class="btn btn-success">Create User</a>
+                <a href="/admin/dashboard" class="btn btn-secondary">Dashboard</a>
+            </div>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search by username or email..." value="{{ search }}">
+            <button class="btn btn-primary" onclick="searchUsers()">Search</button>
+            <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="user-table">
+            <div class="table-header">
+                <div>User</div>
+                <div>Email</div>
+                <div>Role</div>
+                <div>Status</div>
+                <div>Joined</div>
+                <div>Actions</div>
+            </div>
+            {% for user in users.items %}
+                <div class="table-row" id="user-row-{{ user.id }}">
+                    <div class="user-info">{{ user.username }}</div>
+                    <div class="user-email">{{ user.email }}</div>
+                    <div>
+                        {% if user.is_admin %}
+                            <span class="role-badge role-admin">Admin</span>
+                        {% else %}
+                            <span class="role-badge role-user">User</span>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if user.is_active %}
+                            <span class="status-badge status-active">Active</span>
+                        {% else %}
+                            <span class="status-badge status-inactive">Inactive</span>
+                        {% endif %}
+                    </div>
+                    <div>{{ user.created_at | to_ist('%Y-%m-%d') }}</div>
+                    <div class="actions">
+                        <a href="/admin/users/{{ user.id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser({{ user.id }})" {% if not can_manage_user(user) %}disabled{% endif %}>Delete</button>
+                        <button class="btn btn-primary btn-sm" onclick="resetPassword({{ user.id }})">Reset</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if users.has_prev %}
+                <a href="?page={{ users.prev_num }}{% if search %}&search={{ search }}{% endif %}" class="page-link">Previous</a>
+            {% endif %}
+            {% for page_num in users.iter_pages() %}
+                {% if page_num %}
+                    <a href="?page={{ page_num }}{% if search %}&search={{ search }}{% endif %}" class="page-link {% if page_num == users.page %}active{% endif %}">{{ page_num }}</a>
+                {% else %}
+                    <span class="page-link">...</span>
+                {% endif %}
+            {% endfor %}
+            {% if users.has_next %}
+                <a href="?page={{ users.next_num }}{% if search %}&search={{ search }}{% endif %}" class="page-link">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function searchUsers() {
+            const search = document.getElementById('searchInput').value;
+            window.location.href = '?search=' + encodeURIComponent(search) + '&page=1';
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            window.location.href = '?page=1';
+        }
+
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+                fetch(`/admin/users/${userId}/delete`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': csrfToken,
+                    },
+                })
+                .then(() => {
+                    // Reload so the server's own flash message is shown.
+                    // Previously this removed the row and announced success
+                    // unconditionally -- the delete could have been refused
+                    // ("Cannot delete the last admin user", "You cannot delete
+                    // this user") and the admin would still be told it worked,
+                    // with the row reappearing on the next refresh.
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showFlash('Error deleting user', 'error');
+                });
+            }
+        }
+
+        function resetPassword(userId) {
+            // The old wording promised "An email will be sent." There is no
+            // mail system in this app: the server generates a temporary
+            // password and flashes it on screen, and it is the only place it
+            // is ever shown.
+            if (confirm('Reset this user\'s password? A temporary password will be generated and shown on screen — copy it before leaving the page.')) {
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+                fetch(`/admin/users/${userId}/reset-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': csrfToken,
+                    },
+                })
+                .then(() => {
+                    // Reload so the server's flash -- which contains the
+                    // generated temporary password -- is actually displayed.
+                    // The old code swallowed the response and printed its own
+                    // "Password reset successful", so the admin never saw the
+                    // new password and had no way to recover it.
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showFlash('Error resetting password', 'error');
+                });
+            }
+        }
+
+        function showFlash(message, type) {
+            const flashMessages = document.querySelector('.flash-messages');
+            if (flashMessages) {
+                const flash = document.createElement('div');
+                flash.className = `flash ${type}`;
+                flash.textContent = message;
+                flashMessages.insertBefore(flash, flashMessages.firstChild);
+                setTimeout(() => flash.remove(), 5000);
+            }
+        }
+
+    </script>
+</body>
+</html>

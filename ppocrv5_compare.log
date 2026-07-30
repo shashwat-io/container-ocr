@@ -1,0 +1,104 @@
+Sampled 50 images (seed=42) from 786 labeled test images
+Building PP-OCRv5_server pipeline (may download weights on first use)...
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv5_server_det', None, None)[0m
+[33mChecking connectivity to the model hosters, this may take a while. To bypass this check, set `PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK` to `True`.[0m
+[32mUsing official model (PP-OCRv5_server_det), the model files will be automatically downloaded and saved in `/home/shashwatkumar/.paddlex/official_models/PP-OCRv5_server_det`.[0m
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:01,  2.86it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:07<00:01,  1.58s/it]Fetching 6 files: 100%|██████████| 6/6 [00:07<00:00,  1.25s/it]
+[32mCreating model: ('PP-OCRv5_server_rec', None, None)[0m
+[32mUsing official model (PP-OCRv5_server_rec), the model files will be automatically downloaded and saved in `/home/shashwatkumar/.paddlex/official_models/PP-OCRv5_server_rec`.[0m
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:01,  2.58it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:08<00:01,  1.86s/it]Fetching 6 files: 100%|██████████| 6/6 [00:08<00:00,  1.48s/it]
+PP-OCRv5 pipeline ready.
+/home/shashwatkumar/Testing/container_ocr_test/scripts/compare_ppocrv5.py:196: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  processed_np = np.array(processed)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[1/50] IMG_20221218_145427_ce_png_jpg.rf.b314e8c80c40c7cf1253b084d5694ba8.jpg: current=False('0') v5=False('')
+[2/50] 3324797045082915390_0210_jpg.rf.de13916f58acafa1b3e2ad447fa9c772.jpg: current=False('TEMU2890872') v5=False('TEMU2890872')
+[3/50] 1480134690284023198_0270_jpg.rf.0ea121400074ad3478eaf8e5c11c7ede.jpg: current=False('CBHU8805145') v5=False('01908048195')
+[4/50] z4945319769040_4ddb81b418f585842b1be783b7aed784_jpg.rf.255536082ea174f6207ab0348a2984e9.jpg: current=False('9M96C8745G1') v5=False('IGSAPSUPERM')
+[5/50] 8735589977346261651_0110_jpg.rf.08fb7ad01ff47c97aa525629fe8c9d84.jpg: current=True('DRYU2109035') v5=False('22G1DRYU210')  <-- DISAGREE
+[6/50] 8292823959126864327_0220_jpg.rf.352ada78d3b17de2afb8a3fe24db0db3.jpg: current=False('45G18252009') v5=False('45G1UWLU410')
+[7/50] 7395311306943615078_0280_jpg.rf.0aed832eeb55f79c2fa379373b6c0d59.jpg: current=False('15505165817') v5=False('GSAC7OL5165')
+[8/50] 4654256381207060402_0090_jpg.rf.a7a3f8caab5160cceaf8eb4ff13f5b0a.jpg: current=False('027D1554CAM') v5=False('S45G1SEKU63')
+[9/50] z4944210845541_7bd504146bb685d52540ab349c7b2d63_jpg.rf.317cd5215a03901e501948d8a8ddb7ce.jpg: current=False('T1HU511468') v5=False('TIHS511468')
+[10/50] 3324797045082915390_0040_jpg.rf.0691d94d9c640b08a850b9e95bb06307.jpg: current=False('TEMU2890872') v5=False('TEMU2890872')
+[11/50] IMG_20230101_153520_region_jpg.rf.120ef4b3bc5ff8dc598c27c4a3d2c73c.jpg: current=False('DOUNOWGN61C') v5=False('OWGNGICZX')
+[12/50] z4945319753122_6a50be03b29f184be5f9870319db6de8_jpg.rf.9b79f1c240a1f149685f0fb6e6e259a3.jpg: current=True('TGBU4017917') v5=False('45G1')  <-- DISAGREE
+[13/50] IMG_0410_ce_png_jpg.rf.adab8f3b09965335ab477a6ab91d2bce.jpg: current=False('20A') v5=False('O')
+[14/50] 2653019812896645507_0070_jpg.rf.26ce26347c1e9714e4fcd879493cb361.jpg: current=False('T1HU5107374') v5=True('TIHU5107374')  <-- DISAGREE
+[15/50] IMG_0547_ce_png_jpg.rf.59f46edd9f317636b8ec2a2833ef3695.jpg: current=False('XND1880N9') v5=False('XNU188029')
+[16/50] Event20231020003456005-Avi_8120_jpg.rf.3075c2b828ca106b45a00add1acb068b.jpg: current=False('11') v5=False('1')
+[17/50] 1526628520153976338_0090_jpg.rf.0da74400e41e6f9c6eeaf1c435fb313e.jpg: current=True('UWLU4113920') v5=False('45G1UWLU411')  <-- DISAGREE
+[18/50] 1526628520153976338_0070_jpg.rf.7486e1aebc7abb0ad321617d8590e9e4.jpg: current=False('1263114070') v5=False('45G392')
+[19/50] 2653019812896645507_0210_jpg.rf.03267a1dd98332f82797968bc66397fe.jpg: current=False('45G19M96T1H') v5=False('45G1HU51073')
+[20/50] 7395311306943615078_0160_jpg.rf.fda8f5b90611546d68a613ff22888a43.jpg: current=False('45G1CLU8359') v5=False('45GTULU8359')
+[21/50] 742_jpeg_jpg_ce_png_jpg.rf.f22d8f73a1053636346f78a08ec0432a.jpg: current=True('HLXU5207754') v5=True('HLXU5207754')
+[22/50] Event20231020101456005-Avi_8150_jpg.rf.a0f136397df97642949280d063951688.jpg: current=False('7163248TUXD') v5=False('O0DNWGINIG')
+[23/50] IMG_0848_region_JPG_jpg.rf.0ae26d276cb1c578ecc5da4163c82fdc.jpg: current=False('026625430X6') v5=False('4579929629M')
+[24/50] 1480134690284023198_0300_jpg.rf.60877ee3156a3b5f0ca182ce5d42c143.jpg: current=True('CBHU8805106') v5=False('')  <-- DISAGREE
+[25/50] IMG_0455_ce_png_jpg.rf.23ccb7ee80d6975fdcf833e58a8170b9.jpg: current=True('MSCU3692315') v5=False('MSCU3692312')  <-- DISAGREE
+[26/50] 7379698119094862366_0000_jpg.rf.32f9b46c1f10fb9f9138a727c873d181.jpg: current=True('TCNU7574367') v5=False('DEAASNCNNI')  <-- DISAGREE
+[27/50] WhatsApp-Image-2022-11-23-at-10-33-09-AM-16-_ce_png_jpg.rf.575344172debe5a3b7c77dea6b50c0ad.jpg: current=True('CAIU2013014') v5=False('2013014CAIU')  <-- DISAGREE
+[28/50] IMG_20221218_150053_region_jpg.rf.9615835399fb8aebff741f66f6fd964f.jpg: current=False('LXZDO') v5=False('XZD1040871')
+[29/50] IMG_20230101_154620_region_jpg.rf.d1e416714e27b327667eb84ee2812626.jpg: current=True('CXNU2001460') v5=False('NUXNU200146')  <-- DISAGREE
+[30/50] Event20231020003455004-Avi_8040_jpg.rf.9d4f514189be90bd9ee345a420985f73.jpg: current=False('1843159103') v5=False('L58')
+[31/50] 7395311306943615078_0180_jpg.rf.19658caa04ad260c4013b8be01547664.jpg: current=False('45G1TCLU835') v5=False('4561TULU835')
+[32/50] Event20231020095956004-Avi_1890_jpg.rf.d40a904cef83cb53a9660c5db15e2920.jpg: current=True('SKHU6302207') v5=False('SKHU6302204')  <-- DISAGREE
+[33/50] IMG_0541_ce_png_jpg.rf.db25c4091343f20e7220bf8be70f567a.jpg: current=False('N5G199MUXNU') v5=False('29UXNU18704')
+[34/50] 8735589977346261651_0200_jpg.rf.dfeb9552e85e29c7ce83ec5e018d126d.jpg: current=True('DRYU2109035') v5=False('22G1DRYU210')  <-- DISAGREE
+[35/50] 1114039705751937665_0300_jpg.rf.a1beb5071c376c5257d448ea75a51c3a.jpg: current=False('45G129MC18M') v5=True('HRSW1626840')  <-- DISAGREE
+[36/50] z4945347990115_68e40cf6df6cdbe20c194aba62b9790f_jpg.rf.f7c0618a921dd3b8960832e9e1bdd4a3.jpg: current=False('83145G196BM') v5=False('45G193EBM0U')
+[37/50] 508_jpg_ce_png_jpg.rf.d23b5f04f3c56c7467ee851d327d75d3.jpg: current=False('45G19074381') v5=False('1A580106')
+[38/50] IMG_20230101_154524_region_jpg.rf.f12ec29cfb604b458170b814dc51d22f.jpg: current=False('1QUN6271Z58') v5=False('DIZ980CNX1')
+[39/50] Event20231020001456004-Avi_4595_jpg.rf.0874b5f7959174fa6374583a8308f944.jpg: current=False('') v5=False('')
+[40/50] 5035143762191363788_0230_jpg.rf.1275383b35b75495c83aa98b4f791d14.jpg: current=True('RFCU5051496') v5=False('45G1RFCU505')  <-- DISAGREE
+[41/50] 7395311306943615078_0070_jpg.rf.18ee99bab840aee94eab8a170bd3060b.jpg: current=False('13540516538') v5=False('5ACFOG1638')
+[42/50] z4945348032645_49a4ec97f535fa70dd8842eeae23d448_jpg.rf.e40c9e5ffb74ce1aa625dc8dbc56f71f.jpg: current=False('45G19M96SUP') v5=False('9MSUPERKTAV')
+[43/50] Event20231020000956005-Avi_5505_jpg.rf.553545d1a6b7494e23e442862923fc1e.jpg: current=False('') v5=False('8GNN')
+[44/50] 2653019812896645507_0190_jpg.rf.268909d8a0b92c940574e40fb74f49f5.jpg: current=True('TIHU5107374') v5=False('45G1THU5107')  <-- DISAGREE
+[45/50] Event20231020001956004-Avi_3295_jpg.rf.16ba9eb1082a3ba3b20f4e19430ddbd0.jpg: current=False('002A59153S8') v5=False('16420SWUG86')
+[46/50] 2653019812896645507_0250_jpg.rf.6d69595163dfc51739e47ca6aaa86fdc.jpg: current=False('45G1T1HU510') v5=False('45G1HU51073')
+[47/50] Event20231020001456005-Avi_0050_jpg.rf.90ad158ad840f6019dacc18f459a6812.jpg: current=False('131092913') v5=False('22GI6')
+[48/50] Event20231020001456004-Avi_4705_jpg.rf.b1242381f50dc65c4bd404782ce53e7b.jpg: current=True('SEGU3445730') v5=False('OENGTTECGMS')  <-- DISAGREE
+[49/50] IMG_0946_region_JPG_jpg.rf.e48d6dc06f080a11ba9693f661e9619e.jpg: current=False('MWCU6963094') v5=False('MWCU6963094')
+[50/50] 8668723214655100260_0230_jpg.rf.4948a57afbf5ddf1a2e82c61b794f39d.jpg: current=True('UWLU4112688') v5=False('45G1UWLU411')  <-- DISAGREE
+
+=== SIDE-BY-SIDE RESULT (50-image sample) ===
+Current pipeline (PP-OCRv6_medium): 15/50 checksum-valid
+PP-OCRv5_server pipeline:            3/50 checksum-valid
+Disagreements (one valid, other not): 16
+  8735589977346261651_0110_jpg.rf.08fb7ad01ff47c97aa525629fe8c9d84.jpg: winner=current | current='DRYU2109035'(True) v5='22G1DRYU210'(False)
+  z4945319753122_6a50be03b29f184be5f9870319db6de8_jpg.rf.9b79f1c240a1f149685f0fb6e6e259a3.jpg: winner=current | current='TGBU4017917'(True) v5='45G1'(False)
+  2653019812896645507_0070_jpg.rf.26ce26347c1e9714e4fcd879493cb361.jpg: winner=ppocrv5 | current='T1HU5107374'(False) v5='TIHU5107374'(True)
+  1526628520153976338_0090_jpg.rf.0da74400e41e6f9c6eeaf1c435fb313e.jpg: winner=current | current='UWLU4113920'(True) v5='45G1UWLU411'(False)
+  1480134690284023198_0300_jpg.rf.60877ee3156a3b5f0ca182ce5d42c143.jpg: winner=current | current='CBHU8805106'(True) v5=''(False)
+  IMG_0455_ce_png_jpg.rf.23ccb7ee80d6975fdcf833e58a8170b9.jpg: winner=current | current='MSCU3692315'(True) v5='MSCU3692312'(False)
+  7379698119094862366_0000_jpg.rf.32f9b46c1f10fb9f9138a727c873d181.jpg: winner=current | current='TCNU7574367'(True) v5='DEAASNCNNI'(False)
+  WhatsApp-Image-2022-11-23-at-10-33-09-AM-16-_ce_png_jpg.rf.575344172debe5a3b7c77dea6b50c0ad.jpg: winner=current | current='CAIU2013014'(True) v5='2013014CAIU'(False)
+  IMG_20230101_154620_region_jpg.rf.d1e416714e27b327667eb84ee2812626.jpg: winner=current | current='CXNU2001460'(True) v5='NUXNU200146'(False)
+  Event20231020095956004-Avi_1890_jpg.rf.d40a904cef83cb53a9660c5db15e2920.jpg: winner=current | current='SKHU6302207'(True) v5='SKHU6302204'(False)
+  8735589977346261651_0200_jpg.rf.dfeb9552e85e29c7ce83ec5e018d126d.jpg: winner=current | current='DRYU2109035'(True) v5='22G1DRYU210'(False)
+  1114039705751937665_0300_jpg.rf.a1beb5071c376c5257d448ea75a51c3a.jpg: winner=ppocrv5 | current='45G129MC18M'(False) v5='HRSW1626840'(True)
+  5035143762191363788_0230_jpg.rf.1275383b35b75495c83aa98b4f791d14.jpg: winner=current | current='RFCU5051496'(True) v5='45G1RFCU505'(False)
+  2653019812896645507_0190_jpg.rf.268909d8a0b92c940574e40fb74f49f5.jpg: winner=current | current='TIHU5107374'(True) v5='45G1THU5107'(False)
+  Event20231020001456004-Avi_4705_jpg.rf.b1242381f50dc65c4bd404782ce53e7b.jpg: winner=current | current='SEGU3445730'(True) v5='OENGTTECGMS'(False)
+  8668723214655100260_0230_jpg.rf.4948a57afbf5ddf1a2e82c61b794f39d.jpg: winner=current | current='UWLU4112688'(True) v5='45G1UWLU411'(False)
+
+Crops saved to: /home/shashwatkumar/Testing/container_ocr_test/ppocrv5_compare_samples/
+Full results:   /home/shashwatkumar/Testing/container_ocr_test/ppocrv5_compare_results.csv

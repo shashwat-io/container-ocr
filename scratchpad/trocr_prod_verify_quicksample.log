@@ -1,0 +1,11 @@
+images: 157
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights: 100%|██████████| 480/480 [00:00<00:00, 10074.04it/s]
+  25/157
+  50/157
+  75/157
+  100/157
+  125/157
+  150/157
+  157/157
+Wrote scratchpad/trocr_prod_verify_quicksample.csv (166 rows) | valid: 116/166 = 69.9%

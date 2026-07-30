@@ -1,0 +1,388 @@
+{% extends "base.html" %}
+
+{% block title %}Export CSV - Container OCR System{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            {% include "main/sidebar.html" %}
+        </div>
+        
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Export CSV</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Export CSV</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Export Controls</h5>
+                </div>
+                <div class="card-body">
+                    <form id="exportForm" onsubmit="startExport(event)">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="startDate" class="form-label">Start Date</label>
+                                    <input type="date" class="form-control" id="startDate" name="startDate">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="endDate" class="form-label">End Date</label>
+                                    <input type="date" class="form-control" id="endDate" name="endDate">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="minConfidence" class="form-label">Minimum Confidence (%)</label>
+                                    <input type="number" class="form-control" id="minConfidence" name="minConfidence" min="0" max="100" step="5">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-select" id="status" name="status">
+                                        <option value="all">All Statuses</option>
+                                        <option value="valid">Valid Only</option>
+                                        <option value="invalid">Invalid Only</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="user" class="form-label">User</label>
+                                    <select class="form-select" id="user" name="user">
+                                        <option value="all">All Users</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3" id="progressContainer" style="display: none;">
+                                    <label class="form-label">Export Progress</label>
+                                    <div class="progress mb-2">
+                                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%">0%</div>
+                                    </div>
+                                    <small id="progressText" class="text-muted">Preparing export...</small>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="alert alert-info small" role="alert">
+                                        <i class="fas fa-info-circle"></i> Large exports will be processed in batches and may take several minutes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary" onclick="resetFilters()">
+                                <i class="fas fa-undo"></i> Reset Filters
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="exportBtn">
+                                <i class="fas fa-download"></i> Generate Export
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Export History</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Filename</th>
+                                    <th>Size</th>
+                                    <th>Date Generated</th>
+                                    <th>Records Count</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="exportHistoryTable">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-outline-primary btn-sm" onclick="loadExportHistory()">Load More History</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// /export/<id> DELETE is admin-only server-side (@admin_required). Rendering
+// the Delete button for a non-admin owner would show a control that always
+// 403s -- misleading rather than merely redundant, since its presence implies
+// the action is available.
+const IS_ADMIN = {{ current_user.is_admin | tojson }};
+
+// Escape user-supplied values before innerHTML interpolation -- filenames are
+// chosen by the uploader and stored verbatim. See the matching helper in
+// static/js/records.js.
+function esc(value) {
+    return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function toIST(isoString) {
+    if (!isoString) return '';
+    return new Date(isoString).toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+    }) + ' IST';
+}
+
+let exportHistoryPage = 0;
+let exportHistoryLoaded = false;
+
+function startExport(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const filters = {};
+    
+    for (let [key, value] of formData.entries()) {
+        if (value !== '' && value !== 'all') {
+            filters[key] = value;
+        }
+    }
+    
+    // Show progress
+    document.getElementById('progressContainer').style.display = 'block';
+    document.getElementById('exportBtn').disabled = true;
+    
+    let progress = 0;
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    
+    // Start progress animation
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress > 90) progress = 90;
+        progressBar.style.width = `${progress}%`;
+        progressBar.textContent = `${Math.round(progress)}%`;
+        
+        if (progress >= 90) {
+            clearInterval(progressInterval);
+            progressText.textContent = 'Finalizing export...';
+        }
+    }, 500);
+    
+    // Make AJAX request
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    fetch('/export', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+        },
+        body: JSON.stringify(filters)
+    })
+    .then(response => {
+        clearInterval(progressInterval);
+        progress = 100;
+        progressBar.style.width = '100%';
+        progressBar.textContent = '100%';
+        progressText.textContent = 'Export complete!';
+        
+        if (response.ok) {
+            return response.blob();
+        } else {
+            throw new Error('Export failed');
+        }
+    })
+    .then(blob => {
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `exports_${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        // Hide progress
+        setTimeout(() => {
+            document.getElementById('progressContainer').style.display = 'none';
+            document.getElementById('exportBtn').disabled = false;
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            progressText.textContent = 'Preparing export...';
+            reloadExportHistory();
+        }, 1000);
+    })
+    .catch(error => {
+        clearInterval(progressInterval);
+        console.error('Export error:', error);
+        document.getElementById('progressContainer').style.display = 'none';
+        document.getElementById('exportBtn').disabled = false;
+        progressBar.style.width = '0%';
+        progressBar.textContent = '0%';
+        progressText.textContent = 'Error occurred during export';
+        alert('Error generating export');
+    });
+}
+
+function resetFilters() {
+    document.getElementById('exportForm').reset();
+    document.getElementById('startDate').value = '';
+    document.getElementById('endDate').value = '';
+    document.getElementById('minConfidence').value = '';
+    document.getElementById('status').value = 'all';
+    loadUserFilterOptions();
+}
+
+// "Load More History" appends the next page; anything that wants the table
+// rebuilt from the top must reset the counter first. Without this, refreshing
+// after an export or a delete just appended page 2 underneath the stale page 1
+// instead of re-rendering.
+function reloadExportHistory() {
+    exportHistoryPage = 0;
+    loadExportHistory();
+}
+
+function loadExportHistory() {
+    exportHistoryPage++;
+
+    fetch(`/export/history?page=${exportHistoryPage}&limit=10`)
+    .then(response => response.json())
+    .then(data => {
+        const tableBody = document.getElementById('exportHistoryTable');
+        
+        if (exportHistoryPage === 1) {
+            tableBody.innerHTML = '';
+        }
+        
+        data.exports.forEach(exportItem => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${esc(exportItem.filename)}</td>
+                <td>${esc(formatFileSize(exportItem.size))}</td>
+                <td>${esc(toIST(exportItem.created_at))}</td>
+                <td>${exportItem.record_count}</td>
+                <td><span class="badge ${exportItem.status === 'completed' ? 'bg-success' : 'bg-warning'}">${esc(exportItem.status)}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary" onclick="downloadExport(${exportItem.id})">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    ${IS_ADMIN ? `
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteExport(${exportItem.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>` : ''}
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+        
+        if (data.has_more) {
+            exportHistoryLoaded = false;
+        } else {
+            exportHistoryLoaded = true;
+        }
+    })
+    .catch(error => {
+        console.error('Error loading export history:', error);
+    });
+}
+
+function downloadExport(exportId) {
+    fetch(`/export/download/${exportId}`)
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `export_${exportId}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    })
+    .catch(error => {
+        console.error('Error downloading export:', error);
+    });
+}
+
+function deleteExport(exportId) {
+    if (confirm('Are you sure you want to delete this export?')) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+        fetch(`/export/${exportId}`, {
+            method: 'DELETE',
+            headers: { 'X-CSRFToken': csrfToken }
+        })
+        .then(response => {
+            if (response.ok) {
+                reloadExportHistory();
+            } else {
+                // Was silently ignored: a refused delete (403 for a
+                // non-admin, 404 for an already-deleted row) left the row on
+                // screen with no message at all.
+                response.json()
+                    .catch(() => ({}))
+                    .then(d => alert('Could not delete: ' + (d.error || response.status)));
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting export:', error);
+            alert('Could not delete this record — see the browser console.');
+        });
+    }
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// Load real registered users into the "User" filter
+function loadUserFilterOptions() {
+    fetch('/main/users')
+        .then(response => response.json())
+        .then(data => {
+            const userSelect = document.getElementById('user');
+            userSelect.innerHTML = '<option value="all">All Users</option>';
+            (data.users || []).forEach(u => {
+                const option = document.createElement('option');
+                option.value = u.id;
+                option.textContent = u.username;
+                userSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading users for filter:', error);
+        });
+}
+
+loadUserFilterOptions();
+
+// Set default date range (last 30 days)
+const today = new Date();
+const thirtyDaysAgo = new Date();
+thirtyDaysAgo.setDate(today.getDate() - 30);
+document.getElementById('startDate').value = thirtyDaysAgo.toISOString().split('T')[0];
+document.getElementById('endDate').value = today.toISOString().split('T')[0];
+
+// Load initial export history
+loadExportHistory();
+</script>
+{% endblock %}

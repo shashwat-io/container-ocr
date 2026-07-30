@@ -1,0 +1,871 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 641-436-539
+127.0.0.1 - - [29/Jun/2026 13:31:00] "GET /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:31:00] "POST /auth/login HTTP/1.1" 302 -
+[2026-06-29 13:31:07,615] INFO in routes: Upload page accessed by user: 1
+127.0.0.1 - - [29/Jun/2026 13:31:07] "GET /upload HTTP/1.1" 200 -
+[2026-06-29 13:31:07,637] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 13:31:09,871] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 13:31:09,923] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 13:31:09,925] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 188.3ms
+Speed: 2.4ms preprocess, 188.3ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 13:31:14,102] INFO in ocr: OCR raw output: (0.00) | 26W11407(0.66)
+INFO:app.inference.ocr:OCR raw output: (0.00) | 26W11407(0.66)
+[2026-06-29 13:31:14,103] INFO in ocr: OCR result: code=26W11407, valid=False, reason=Text too short
+INFO:app.inference.ocr:OCR result: code=26W11407, valid=False, reason=Text too short
+[2026-06-29 13:31:14,103] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:31:14,122] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 333.3ms
+Speed: 12.6ms preprocess, 333.3ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:31:17,794] INFO in ocr: OCR raw output: 2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)
+INFO:app.inference.ocr:OCR raw output: 2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)
+[2026-06-29 13:31:17,794] INFO in ocr: OCR result: code=2830643N111, valid=False, reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR result: code=2830643N111, valid=False, reason=First 4 characters must be letters
+[2026-06-29 13:31:17,795] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:31:17,810] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 1931.9ms
+Speed: 20.4ms preprocess, 1931.9ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:31:21,329] INFO in ocr: OCR raw output: NO9NGG CAMW(0.79)
+INFO:app.inference.ocr:OCR raw output: NO9NGG CAMW(0.79)
+[2026-06-29 13:31:21,333] INFO in ocr: OCR result: code=NO9NGGCAMW, valid=False, reason=Text too short
+INFO:app.inference.ocr:OCR result: code=NO9NGGCAMW, valid=False, reason=Text too short
+[2026-06-29 13:31:21,334] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+127.0.0.1 - - [29/Jun/2026 13:31:21] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:31:21] "POST /upload HTTP/1.1" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 872-919-916
+[2026-06-29 13:32:50,652] INFO in routes: Upload page accessed by user: 4
+127.0.0.1 - - [29/Jun/2026 13:32:50] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:32:50] "GET /static/js/inference.js?v=6 HTTP/1.1" 304 -
+[2026-06-29 13:33:07,851] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 13:33:09,938] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 13:33:09,998] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 13:33:09,999] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 185.6ms
+Speed: 1.8ms preprocess, 185.6ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 13:33:14,283] INFO in ocr: OCR raw output: NO9NGG CAMW(0.79)
+INFO:app.inference.ocr:OCR raw output: NO9NGG CAMW(0.79)
+[2026-06-29 13:33:14,284] INFO in ocr: OCR result: code=NO9NGGCAMW, valid=False, reason=Text too short
+INFO:app.inference.ocr:OCR result: code=NO9NGGCAMW, valid=False, reason=Text too short
+[2026-06-29 13:33:14,284] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:33:14,301] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 659.2ms
+Speed: 9.5ms preprocess, 659.2ms inference, 1.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:33:16,678] INFO in ocr: OCR raw output: (0.00) | 26W11407(0.66)
+INFO:app.inference.ocr:OCR raw output: (0.00) | 26W11407(0.66)
+[2026-06-29 13:33:16,678] INFO in ocr: OCR result: code=26W11407, valid=False, reason=Text too short
+INFO:app.inference.ocr:OCR result: code=26W11407, valid=False, reason=Text too short
+[2026-06-29 13:33:16,678] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:33:16,690] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 324.7ms
+Speed: 18.0ms preprocess, 324.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:33:20,276] INFO in ocr: OCR raw output: 2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)
+INFO:app.inference.ocr:OCR raw output: 2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)
+[2026-06-29 13:33:20,277] INFO in ocr: OCR result: code=2830643N111, valid=False, reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR result: code=2830643N111, valid=False, reason=First 4 characters must be letters
+[2026-06-29 13:33:20,277] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+127.0.0.1 - - [29/Jun/2026 13:33:20] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:33:20] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/78_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/78_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/79_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/79_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/80_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:33:20] "GET /static/uploads/80_annotated.jpg HTTP/1.1" 200 -
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+INFO:werkzeug: * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 872-919-916
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+[2026-06-29 13:52:18,168] INFO in routes: Upload page accessed by user: 4
+127.0.0.1 - - [29/Jun/2026 13:52:18] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:52:18] "GET /static/js/inference.js?v=6 HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:52:20] "GET /favicon.ico HTTP/1.1" 404 -
+[2026-06-29 13:52:27,296] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 13:52:29,435] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 13:52:29,492] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 13:52:29,493] INFO in predictor: Processing image with real model: test9.jpg
+INFO:app.inference.predictor:Processing image with real model: test9.jpg
+
+0: 640x640 1 container_number, 364.1ms
+Speed: 8.1ms preprocess, 364.1ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 13:52:34,807] INFO in ocr: Portrait crop: rot90=''(False) rot-90='6'(False)
+INFO:app.inference.ocr:Portrait crop: rot90=''(False) rot-90='6'(False)
+[2026-06-29 13:52:34,808] INFO in ocr: OCR result: code='6' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='6' valid=False reason=Text too short
+[2026-06-29 13:52:34,808] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:34,842] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 380.2ms
+Speed: 11.8ms preprocess, 380.2ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:52:38,622] INFO in ocr: Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+[2026-06-29 13:52:38,622] INFO in ocr: OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+[2026-06-29 13:52:38,623] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:38,637] INFO in predictor: Processing image with real model: test7.jpg
+INFO:app.inference.predictor:Processing image with real model: test7.jpg
+
+0: 640x640 1 container_number, 308.6ms
+Speed: 11.8ms preprocess, 308.6ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:52:40,456] INFO in ocr: Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+[2026-06-29 13:52:41,973] INFO in ocr: Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+[2026-06-29 13:52:41,973] INFO in ocr: OCR result: code='DRYU2109035' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='DRYU2109035' valid=True reason=Valid
+[2026-06-29 13:52:41,974] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:41,989] INFO in predictor: Processing image with real model: test6.jpg
+INFO:app.inference.predictor:Processing image with real model: test6.jpg
+
+0: 640x640 1 container_number, 288.6ms
+Speed: 11.5ms preprocess, 288.6ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:52:47,413] INFO in ocr: Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+[2026-06-29 13:52:47,414] INFO in ocr: OCR result: code='TCNU7574367' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='TCNU7574367' valid=True reason=Valid
+[2026-06-29 13:52:47,414] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:47,428] INFO in predictor: Processing image with real model: test5.jpg
+INFO:app.inference.predictor:Processing image with real model: test5.jpg
+
+0: 640x640 1 container_number, 316.7ms
+Speed: 12.2ms preprocess, 316.7ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:52:52,579] INFO in ocr: Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+[2026-06-29 13:52:52,579] INFO in ocr: OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+[2026-06-29 13:52:52,580] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:52,590] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 359.4ms
+Speed: 16.9ms preprocess, 359.4ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:52:56,468] INFO in ocr: Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+[2026-06-29 13:52:56,469] INFO in ocr: OCR result: code='126W11407' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='126W11407' valid=False reason=Text too short
+[2026-06-29 13:52:56,469] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:52:56,493] INFO in predictor: Processing image with real model: test3.jpg
+INFO:app.inference.predictor:Processing image with real model: test3.jpg
+
+0: 640x640 1 container_number, 316.5ms
+Speed: 11.1ms preprocess, 316.5ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:53:01,510] INFO in ocr: Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+[2026-06-29 13:53:01,510] INFO in ocr: OCR result: code='CBHU8805106' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='CBHU8805106' valid=True reason=Valid
+[2026-06-29 13:53:01,511] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:53:01,524] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 301.7ms
+Speed: 10.9ms preprocess, 301.7ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:53:04,849] INFO in ocr: Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+[2026-06-29 13:53:08,634] INFO in ocr: Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+[2026-06-29 13:53:08,634] INFO in ocr: OCR result: code='MGNN8687835' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='MGNN8687835' valid=True reason=Valid
+[2026-06-29 13:53:08,634] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:53:08,652] INFO in predictor: Processing image with real model: test1.jpg
+INFO:app.inference.predictor:Processing image with real model: test1.jpg
+
+0: 640x640 2 container_numbers, 317.9ms
+Speed: 16.9ms preprocess, 317.9ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:53:12,253] INFO in ocr: OCR result: code='EGHU9632' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='EGHU9632' valid=False reason=Text too short
+[2026-06-29 13:53:15,266] INFO in ocr: Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+[2026-06-29 13:53:15,266] INFO in ocr: OCR result: code='EMCU6131900' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='EMCU6131900' valid=True reason=Valid
+[2026-06-29 13:53:15,267] INFO in predictor: Real model detected 2 objects
+INFO:app.inference.predictor:Real model detected 2 objects
+127.0.0.1 - - [29/Jun/2026 13:53:15] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/81_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/81_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/83_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/83_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/82_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/82_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/84_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/84_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/85_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/85_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/86_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/86_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/87_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/87_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/88_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/88_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/89_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:53:15] "GET /static/uploads/89_annotated.jpg HTTP/1.1" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+[2026-06-29 13:55:43,253] INFO in routes: Upload page accessed by user: 4
+127.0.0.1 - - [29/Jun/2026 13:55:43] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:43] "GET /static/js/inference.js?v=7 HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:45] "GET /auth/logout HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:55:45] "GET /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:51] "POST /auth/login HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:55:51] "GET /index HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:53] "GET /admin/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:57] "GET /admin/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:57] "GET /admin/users HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:55:58] "GET /admin/users/create HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:12] "POST /admin/users/create HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:56:12] "GET /admin/users HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:13] "GET /admin/users/create HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:27] "POST /admin/users/create HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:56:27] "GET /admin/users HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:31] "GET /admin/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:33] "GET /auth/logout HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:56:33] "GET /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:44] "POST /auth/login HTTP/1.1" 302 -
+127.0.0.1 - - [29/Jun/2026 13:56:44] "GET /index HTTP/1.1" 200 -
+[2026-06-29 13:56:45,269] INFO in routes: Upload page accessed by user: 6
+127.0.0.1 - - [29/Jun/2026 13:56:45] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:56:45] "GET /static/js/inference.js?v=7 HTTP/1.1" 304 -
+[2026-06-29 13:56:53,650] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 13:56:55,501] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 13:56:55,560] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 13:56:55,560] INFO in predictor: Processing image with real model: test9.jpg
+INFO:app.inference.predictor:Processing image with real model: test9.jpg
+
+0: 640x640 1 container_number, 234.3ms
+Speed: 9.2ms preprocess, 234.3ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 13:57:01,071] INFO in ocr: Portrait crop: rot90=''(False) rot-90='6'(False)
+INFO:app.inference.ocr:Portrait crop: rot90=''(False) rot-90='6'(False)
+[2026-06-29 13:57:01,072] INFO in ocr: OCR result: code='6' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='6' valid=False reason=Text too short
+[2026-06-29 13:57:01,072] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:01,091] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 328.1ms
+Speed: 21.4ms preprocess, 328.1ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:04,637] INFO in ocr: Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+[2026-06-29 13:57:04,637] INFO in ocr: OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+[2026-06-29 13:57:04,637] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:04,676] INFO in predictor: Processing image with real model: test7.jpg
+INFO:app.inference.predictor:Processing image with real model: test7.jpg
+
+0: 640x640 1 container_number, 252.7ms
+Speed: 25.0ms preprocess, 252.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:06,498] INFO in ocr: Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+[2026-06-29 13:57:08,183] INFO in ocr: Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+[2026-06-29 13:57:08,184] INFO in ocr: OCR result: code='DRYU2109035' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='DRYU2109035' valid=True reason=Valid
+[2026-06-29 13:57:08,184] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:08,202] INFO in predictor: Processing image with real model: test6.jpg
+INFO:app.inference.predictor:Processing image with real model: test6.jpg
+
+0: 640x640 1 container_number, 283.1ms
+Speed: 14.8ms preprocess, 283.1ms inference, 0.9ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:13,119] INFO in ocr: Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+[2026-06-29 13:57:13,120] INFO in ocr: OCR result: code='TCNU7574367' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='TCNU7574367' valid=True reason=Valid
+[2026-06-29 13:57:13,122] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:13,138] INFO in predictor: Processing image with real model: test5.jpg
+INFO:app.inference.predictor:Processing image with real model: test5.jpg
+
+0: 640x640 1 container_number, 632.9ms
+Speed: 13.2ms preprocess, 632.9ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:17,853] INFO in ocr: Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+[2026-06-29 13:57:17,854] INFO in ocr: OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+[2026-06-29 13:57:17,854] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:17,884] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 268.5ms
+Speed: 13.7ms preprocess, 268.5ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:21,216] INFO in ocr: Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+[2026-06-29 13:57:21,216] INFO in ocr: OCR result: code='126W11407' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='126W11407' valid=False reason=Text too short
+[2026-06-29 13:57:21,217] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:21,230] INFO in predictor: Processing image with real model: test3.jpg
+INFO:app.inference.predictor:Processing image with real model: test3.jpg
+
+0: 640x640 1 container_number, 312.2ms
+Speed: 13.9ms preprocess, 312.2ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:25,802] INFO in ocr: Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+[2026-06-29 13:57:25,804] INFO in ocr: OCR result: code='CBHU8805106' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='CBHU8805106' valid=True reason=Valid
+[2026-06-29 13:57:25,805] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:25,819] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 373.2ms
+Speed: 19.2ms preprocess, 373.2ms inference, 1.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:29,346] INFO in ocr: Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+[2026-06-29 13:57:32,199] INFO in ocr: Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+[2026-06-29 13:57:32,199] INFO in ocr: OCR result: code='MGNN8687835' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='MGNN8687835' valid=True reason=Valid
+[2026-06-29 13:57:32,199] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 13:57:32,229] INFO in predictor: Processing image with real model: test1.jpg
+INFO:app.inference.predictor:Processing image with real model: test1.jpg
+
+0: 640x640 2 container_numbers, 353.0ms
+Speed: 13.2ms preprocess, 353.0ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 13:57:36,753] INFO in ocr: OCR result: code='EGHU9632' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='EGHU9632' valid=False reason=Text too short
+[2026-06-29 13:57:41,554] INFO in ocr: Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+[2026-06-29 13:57:41,555] INFO in ocr: OCR result: code='EMCU6131900' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='EMCU6131900' valid=True reason=Valid
+[2026-06-29 13:57:41,555] INFO in predictor: Real model detected 2 objects
+INFO:app.inference.predictor:Real model detected 2 objects
+127.0.0.1 - - [29/Jun/2026 13:57:41] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/91_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/91_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/90_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/90_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/92_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/92_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/94_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/95_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/94_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/93_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/95_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/96_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/93_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/96_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/97_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/97_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/98_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 13:57:41] "GET /static/uploads/98_annotated.jpg HTTP/1.1" 200 -
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+[2026-06-29 14:15:52,361] INFO in routes: Upload page accessed by user: 6
+127.0.0.1 - - [29/Jun/2026 14:15:52] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:15:52] "GET /static/js/inference.js?v=7 HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:15:54] "GET /favicon.ico HTTP/1.1" 404 -
+[2026-06-29 14:16:11,161] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 14:16:13,063] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 14:16:13,123] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 14:16:13,125] INFO in predictor: Processing image with real model: test9.jpg
+INFO:app.inference.predictor:Processing image with real model: test9.jpg
+
+0: 640x640 1 container_number, 177.9ms
+Speed: 10.8ms preprocess, 177.9ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 14:16:18,276] INFO in ocr: Portrait crop: rot90=''(False) rot-90='6'(False)
+INFO:app.inference.ocr:Portrait crop: rot90=''(False) rot-90='6'(False)
+[2026-06-29 14:16:18,279] INFO in ocr: OCR result: code='6' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='6' valid=False reason=Text too short
+[2026-06-29 14:16:18,279] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:18,308] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 368.9ms
+Speed: 21.5ms preprocess, 368.9ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:21,706] INFO in ocr: Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='NO9NGGCAMW'(False) rot-90='NO9NGGCAMW'(False)
+[2026-06-29 14:16:21,706] INFO in ocr: OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='NO9NGGCAMW' valid=False reason=Text too short
+[2026-06-29 14:16:21,707] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:21,735] INFO in predictor: Processing image with real model: test7.jpg
+INFO:app.inference.predictor:Processing image with real model: test7.jpg
+
+0: 640x640 1 container_number, 389.1ms
+Speed: 14.0ms preprocess, 389.1ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:23,617] INFO in ocr: Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+[2026-06-29 14:16:25,155] INFO in ocr: Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='DRYU2109035'(True) rot-90='DRYU2109035'(True)
+[2026-06-29 14:16:25,155] INFO in ocr: OCR result: code='DRYU2109035' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='DRYU2109035' valid=True reason=Valid
+[2026-06-29 14:16:25,155] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:25,171] INFO in predictor: Processing image with real model: test6.jpg
+INFO:app.inference.predictor:Processing image with real model: test6.jpg
+
+0: 640x640 1 container_number, 759.7ms
+Speed: 11.4ms preprocess, 759.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:29,568] INFO in ocr: Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+INFO:app.inference.ocr:Portrait crop: rot90='TCNU7574367'(True) rot-90='TCNU7574367'(True)
+[2026-06-29 14:16:29,569] INFO in ocr: OCR result: code='TCNU7574367' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='TCNU7574367' valid=True reason=Valid
+[2026-06-29 14:16:29,569] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:29,580] INFO in predictor: Processing image with real model: test5.jpg
+INFO:app.inference.predictor:Processing image with real model: test5.jpg
+
+0: 640x640 1 container_number, 509.0ms
+Speed: 9.9ms preprocess, 509.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:35,463] INFO in ocr: Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='111519629M1'(False) rot-90='225115H1115'(False)
+[2026-06-29 14:16:35,463] INFO in ocr: OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR result: code='225115H1115' valid=False reason=First 4 characters must be letters
+[2026-06-29 14:16:35,464] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:35,486] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 767.2ms
+Speed: 10.8ms preprocess, 767.2ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:39,973] INFO in ocr: Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='126W11407'(False) rot-90='26W11407'(False)
+[2026-06-29 14:16:39,974] INFO in ocr: OCR result: code='126W11407' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='126W11407' valid=False reason=Text too short
+[2026-06-29 14:16:39,974] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:39,988] INFO in predictor: Processing image with real model: test3.jpg
+INFO:app.inference.predictor:Processing image with real model: test3.jpg
+
+0: 640x640 1 container_number, 658.1ms
+Speed: 15.2ms preprocess, 658.1ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:46,644] INFO in ocr: Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='CBHU8805106'(True) rot-90='90110888033'(False)
+[2026-06-29 14:16:46,645] INFO in ocr: OCR result: code='CBHU8805106' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='CBHU8805106' valid=True reason=Valid
+[2026-06-29 14:16:46,648] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:46,676] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 377.3ms
+Speed: 19.8ms preprocess, 377.3ms inference, 1.0ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:49,801] INFO in ocr: Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+[2026-06-29 14:16:52,917] INFO in ocr: Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+INFO:app.inference.ocr:Portrait crop: rot90='MGNN8687835'(True) rot-90='2830643N111'(False)
+[2026-06-29 14:16:52,918] INFO in ocr: OCR result: code='MGNN8687835' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='MGNN8687835' valid=True reason=Valid
+[2026-06-29 14:16:52,918] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:16:52,947] INFO in predictor: Processing image with real model: test1.jpg
+INFO:app.inference.predictor:Processing image with real model: test1.jpg
+
+0: 640x640 2 container_numbers, 308.0ms
+Speed: 20.1ms preprocess, 308.0ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:16:56,582] INFO in ocr: OCR result: code='EGHU9632' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR result: code='EGHU9632' valid=False reason=Text too short
+[2026-06-29 14:16:59,600] INFO in ocr: Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+[2026-06-29 14:16:59,600] INFO in ocr: OCR result: code='EMCU6131900' valid=True reason=Valid
+INFO:app.inference.ocr:OCR result: code='EMCU6131900' valid=True reason=Valid
+[2026-06-29 14:16:59,601] INFO in predictor: Real model detected 2 objects
+INFO:app.inference.predictor:Real model detected 2 objects
+127.0.0.1 - - [29/Jun/2026 14:16:59] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/99_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/99_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/101_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/101_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/100_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/100_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/102_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/102_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/103_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/103_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/104_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/104_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/105_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/105_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/106_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/106_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/107_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:16:59] "GET /static/uploads/107_annotated.jpg HTTP/1.1" 200 -
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+INFO:werkzeug: * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+[2026-06-29 14:42:19,720] INFO in routes: Upload page accessed by user: 6
+127.0.0.1 - - [29/Jun/2026 14:42:19] "GET /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:42:19] "GET /static/js/inference.js?v=7 HTTP/1.1" 304 -
+[2026-06-29 14:42:26,450] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-06-29 14:42:28,568] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-06-29 14:42:28,633] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-06-29 14:42:28,633] INFO in predictor: Processing image with real model: test9.jpg
+INFO:app.inference.predictor:Processing image with real model: test9.jpg
+
+0: 640x640 1 container_number, 267.4ms
+Speed: 1.5ms preprocess, 267.4ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:29,504] INFO in ocr: OCR start: bbox=(500.1,95.4,637.5,260.5) crop=150x185 portrait
+INFO:app.inference.ocr:OCR start: bbox=(500.1,95.4,637.5,260.5) crop=150x185 portrait
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-06-29 14:42:34,311] INFO in ocr: Portrait +90: code='' valid=False conf=0.000 raw=''
+INFO:app.inference.ocr:Portrait +90: code='' valid=False conf=0.000 raw=''
+[2026-06-29 14:42:34,311] INFO in ocr: Portrait -90: code='6' valid=False conf=0.422 raw='6(0.42)'
+INFO:app.inference.ocr:Portrait -90: code='6' valid=False conf=0.422 raw='6(0.42)'
+[2026-06-29 14:42:34,311] INFO in ocr: OCR final: code='6' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR final: code='6' valid=False reason=Text too short
+[2026-06-29 14:42:34,311] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:42:34,332] INFO in predictor: Processing image with real model: test8.jpg
+INFO:app.inference.predictor:Processing image with real model: test8.jpg
+
+0: 640x640 1 container_number, 272.8ms
+Speed: 12.4ms preprocess, 272.8ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:34,623] INFO in ocr: OCR start: bbox=(225.7,133.8,388.1,484.7) crop=183x371 portrait
+INFO:app.inference.ocr:OCR start: bbox=(225.7,133.8,388.1,484.7) crop=183x371 portrait
+[2026-06-29 14:42:37,516] INFO in ocr: Portrait +90: code='NO9NGGCAMW' valid=False conf=0.745 raw='NO9NGG CAMW(0.75)'
+INFO:app.inference.ocr:Portrait +90: code='NO9NGGCAMW' valid=False conf=0.745 raw='NO9NGG CAMW(0.75)'
+[2026-06-29 14:42:37,516] INFO in ocr: Portrait -90: code='NO9NGGCAMW' valid=False conf=0.786 raw='NO9NGG CAMW(0.79)'
+INFO:app.inference.ocr:Portrait -90: code='NO9NGGCAMW' valid=False conf=0.786 raw='NO9NGG CAMW(0.79)'
+[2026-06-29 14:42:37,516] INFO in ocr: OCR final: code='NO9NGGCAMW' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR final: code='NO9NGGCAMW' valid=False reason=Text too short
+[2026-06-29 14:42:37,516] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:42:37,527] INFO in predictor: Processing image with real model: test7.jpg
+INFO:app.inference.predictor:Processing image with real model: test7.jpg
+
+0: 640x640 1 container_number, 300.9ms
+Speed: 23.7ms preprocess, 300.9ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:37,857] INFO in ocr: OCR start: bbox=(221.9,85.8,455.9,474.5) crop=254x409 portrait
+INFO:app.inference.ocr:OCR start: bbox=(221.9,85.8,455.9,474.5) crop=254x409 portrait
+[2026-06-29 14:42:39,869] INFO in ocr: Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'DRYU210903' → 'DRYU2109035'
+[2026-06-29 14:42:42,218] INFO in ocr: Portrait +90: code='DRYU2109035' valid=True conf=0.998 raw='DRYU210903(1.00) | 22G1(1.00)'
+INFO:app.inference.ocr:Portrait +90: code='DRYU2109035' valid=True conf=0.998 raw='DRYU210903(1.00) | 22G1(1.00)'
+[2026-06-29 14:42:42,223] INFO in ocr: Portrait -90: code='DRYU2109035' valid=True conf=0.998 raw='22G1(1.00) | DRYU2109035(1.00)'
+INFO:app.inference.ocr:Portrait -90: code='DRYU2109035' valid=True conf=0.998 raw='22G1(1.00) | DRYU2109035(1.00)'
+[2026-06-29 14:42:42,223] INFO in ocr: OCR final: code='DRYU2109035' valid=True reason=Valid
+INFO:app.inference.ocr:OCR final: code='DRYU2109035' valid=True reason=Valid
+[2026-06-29 14:42:42,223] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:42:42,253] INFO in predictor: Processing image with real model: test6.jpg
+INFO:app.inference.predictor:Processing image with real model: test6.jpg
+
+0: 640x640 1 container_number, 349.4ms
+Speed: 32.5ms preprocess, 349.4ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:42,647] INFO in ocr: OCR start: bbox=(208.8,87.2,361.1,345.9) crop=173x278 portrait
+INFO:app.inference.ocr:OCR start: bbox=(208.8,87.2,361.1,345.9) crop=173x278 portrait
+[2026-06-29 14:42:48,021] INFO in ocr: Portrait +90: code='TCNU7574367' valid=True conf=0.793 raw='TCNU7574367(0.98) | 45G1(0.98) | 290 1(0.52) | 5(0.68)'
+INFO:app.inference.ocr:Portrait +90: code='TCNU7574367' valid=True conf=0.793 raw='TCNU7574367(0.98) | 45G1(0.98) | 290 1(0.52) | 5(0.68)'
+[2026-06-29 14:42:48,021] INFO in ocr: Portrait -90: code='TCNU7574367' valid=True conf=0.809 raw='TCNU7574367(0.98) | 45G1(0.98) | 2960(0.56) | 5(0.71)'
+INFO:app.inference.ocr:Portrait -90: code='TCNU7574367' valid=True conf=0.809 raw='TCNU7574367(0.98) | 45G1(0.98) | 2960(0.56) | 5(0.71)'
+[2026-06-29 14:42:48,022] INFO in ocr: OCR final: code='TCNU7574367' valid=True reason=Valid
+INFO:app.inference.ocr:OCR final: code='TCNU7574367' valid=True reason=Valid
+[2026-06-29 14:42:48,022] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:42:48,060] INFO in predictor: Processing image with real model: test5.jpg
+INFO:app.inference.predictor:Processing image with real model: test5.jpg
+
+0: 640x640 1 container_number, 1899.5ms
+Speed: 13.4ms preprocess, 1899.5ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:49,979] INFO in ocr: OCR start: bbox=(202.8,21.0,413.1,354.5) crop=231x354 portrait
+INFO:app.inference.ocr:OCR start: bbox=(202.8,21.0,413.1,354.5) crop=231x354 portrait
+[2026-06-29 14:42:55,023] INFO in ocr: Portrait +90: code='111519629M1' valid=False conf=0.772 raw='11151(0.54) | 9\'6"(0.86) | 2,9m(0.98) | 1554(0.71)'
+INFO:app.inference.ocr:Portrait +90: code='111519629M1' valid=False conf=0.772 raw='11151(0.54) | 9\'6"(0.86) | 2,9m(0.98) | 1554(0.71)'
+[2026-06-29 14:42:55,024] INFO in ocr: Portrait -90: code='225115H1115' valid=False conf=0.785 raw='225115H11(0.61) | 1554(0.73) | 29m(0.79) | 9.6(1.00)'
+INFO:app.inference.ocr:Portrait -90: code='225115H1115' valid=False conf=0.785 raw='225115H11(0.61) | 1554(0.73) | 29m(0.79) | 9.6(1.00)'
+[2026-06-29 14:42:55,024] INFO in ocr: OCR final: code='225115H1115' valid=False reason=First 4 characters must be letters
+INFO:app.inference.ocr:OCR final: code='225115H1115' valid=False reason=First 4 characters must be letters
+[2026-06-29 14:42:55,024] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:42:55,040] INFO in predictor: Processing image with real model: test2.jpg
+INFO:app.inference.predictor:Processing image with real model: test2.jpg
+
+0: 640x640 1 container_number, 1292.2ms
+Speed: 12.2ms preprocess, 1292.2ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:42:56,351] INFO in ocr: OCR start: bbox=(252.3,143.5,397.5,352.0) crop=165x228 portrait
+INFO:app.inference.ocr:OCR start: bbox=(252.3,143.5,397.5,352.0) crop=165x228 portrait
+[2026-06-29 14:42:59,972] INFO in ocr: Portrait +90: code='126W11407' valid=False conf=0.731 raw='1(0.80) | 26W11407(0.67)'
+INFO:app.inference.ocr:Portrait +90: code='126W11407' valid=False conf=0.731 raw='1(0.80) | 26W11407(0.67)'
+[2026-06-29 14:42:59,973] INFO in ocr: Portrait -90: code='26W11407' valid=False conf=0.664 raw='26W11407(0.66)'
+INFO:app.inference.ocr:Portrait -90: code='26W11407' valid=False conf=0.664 raw='26W11407(0.66)'
+[2026-06-29 14:42:59,973] INFO in ocr: OCR final: code='126W11407' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR final: code='126W11407' valid=False reason=Text too short
+[2026-06-29 14:42:59,973] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:43:00,002] INFO in predictor: Processing image with real model: test3.jpg
+INFO:app.inference.predictor:Processing image with real model: test3.jpg
+
+0: 640x640 1 container_number, 2012.1ms
+Speed: 13.6ms preprocess, 2012.1ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:43:02,035] INFO in ocr: OCR start: bbox=(225.7,43.1,386.3,308.9) crop=181x285 portrait
+INFO:app.inference.ocr:OCR start: bbox=(225.7,43.1,386.3,308.9) crop=181x285 portrait
+[2026-06-29 14:43:06,986] INFO in ocr: Portrait +90: code='CBHU8805106' valid=True conf=0.993 raw='45G1(0.99) | CBHU8805106(0.99)'
+INFO:app.inference.ocr:Portrait +90: code='CBHU8805106' valid=True conf=0.993 raw='45G1(0.99) | CBHU8805106(0.99)'
+[2026-06-29 14:43:06,990] INFO in ocr: Portrait -90: code='90110888033' valid=False conf=0.679 raw='9(0.49) | 01108880(0.73) | 33(1.00) | 154(0.49)'
+INFO:app.inference.ocr:Portrait -90: code='90110888033' valid=False conf=0.679 raw='9(0.49) | 01108880(0.73) | 33(1.00) | 154(0.49)'
+[2026-06-29 14:43:06,990] INFO in ocr: OCR final: code='CBHU8805106' valid=True reason=Valid
+INFO:app.inference.ocr:OCR final: code='CBHU8805106' valid=True reason=Valid
+[2026-06-29 14:43:06,990] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:43:07,024] INFO in predictor: Processing image with real model: test4.jpg
+INFO:app.inference.predictor:Processing image with real model: test4.jpg
+
+0: 640x640 1 container_number, 1383.9ms
+Speed: 25.5ms preprocess, 1383.9ms inference, 1.0ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:43:08,443] INFO in ocr: OCR start: bbox=(166.1,13.9,451.5,490.3) crop=305x497 portrait
+INFO:app.inference.ocr:OCR start: bbox=(166.1,13.9,451.5,490.3) crop=305x497 portrait
+[2026-06-29 14:43:13,160] INFO in ocr: Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'MGNN868783' → 'MGNN8687835'
+[2026-06-29 14:43:17,510] INFO in ocr: Portrait +90: code='MGNN8687835' valid=True conf=0.814 raw="2,6m(1.00) | ーGNN(0.47) | 8'6(0.89) | 87(1.00) | 8306431111(0.71)"
+INFO:app.inference.ocr:Portrait +90: code='MGNN8687835' valid=True conf=0.814 raw="2,6m(1.00) | ーGNN(0.47) | 8'6(0.89) | 87(1.00) | 8306431111(0.71)"
+[2026-06-29 14:43:17,514] INFO in ocr: Portrait -90: code='2830643N111' valid=False conf=0.770 raw='2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)'
+INFO:app.inference.ocr:Portrait -90: code='2830643N111' valid=False conf=0.770 raw='2(0.99) | 830643n111(0.74) | 8(0.99) | 8,6(0.79) | 2,6m(1.00) | 1GZ(0.50) | S(0.37)'
+[2026-06-29 14:43:17,514] INFO in ocr: OCR final: code='MGNN8687835' valid=True reason=Valid
+INFO:app.inference.ocr:OCR final: code='MGNN8687835' valid=True reason=Valid
+[2026-06-29 14:43:17,515] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+[2026-06-29 14:43:17,545] INFO in predictor: Processing image with real model: test1.jpg
+INFO:app.inference.predictor:Processing image with real model: test1.jpg
+
+0: 640x640 2 container_numbers, 407.0ms
+Speed: 10.7ms preprocess, 407.0ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+[2026-06-29 14:43:17,974] INFO in ocr: OCR start: bbox=(161.4,353.6,425.1,403.8) crop=284x70 landscape
+INFO:app.inference.ocr:OCR start: bbox=(161.4,353.6,425.1,403.8) crop=284x70 landscape
+[2026-06-29 14:43:21,394] INFO in ocr: Landscape: code='EGHU9632' valid=False conf=0.999 raw='EGHU(1.00) | 9(1.00) | 6(1.00) | 3(1.00) | 2(1.00)'
+INFO:app.inference.ocr:Landscape: code='EGHU9632' valid=False conf=0.999 raw='EGHU(1.00) | 9(1.00) | 6(1.00) | 3(1.00) | 2(1.00)'
+[2026-06-29 14:43:21,394] INFO in ocr: OCR final: code='EGHU9632' valid=False reason=Text too short
+INFO:app.inference.ocr:OCR final: code='EGHU9632' valid=False reason=Text too short
+[2026-06-29 14:43:21,397] INFO in ocr: OCR start: bbox=(177.5,143.5,429.1,189.0) crop=272x65 landscape
+INFO:app.inference.ocr:OCR start: bbox=(177.5,143.5,429.1,189.0) crop=272x65 landscape
+[2026-06-29 14:43:24,554] INFO in ocr: Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+INFO:app.inference.ocr:Pass-2 check-digit recovery: 'EMCU613190' → 'EMCU6131900'
+[2026-06-29 14:43:24,555] INFO in ocr: Landscape: code='EMCU6131900' valid=True conf=0.977 raw='EMCU613190D(0.96) | 22G(1.00)'
+INFO:app.inference.ocr:Landscape: code='EMCU6131900' valid=True conf=0.977 raw='EMCU613190D(0.96) | 22G(1.00)'
+[2026-06-29 14:43:24,555] INFO in ocr: OCR final: code='EMCU6131900' valid=True reason=Valid
+INFO:app.inference.ocr:OCR final: code='EMCU6131900' valid=True reason=Valid
+[2026-06-29 14:43:24,556] INFO in predictor: Real model detected 2 objects
+INFO:app.inference.predictor:Real model detected 2 objects
+127.0.0.1 - - [29/Jun/2026 14:43:24] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/118_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/118_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/117_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/117_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/119_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/119_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/121_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/120_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/121_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/122_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/120_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/122_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/123_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/123_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/124_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/124_annotated.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/125_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [29/Jun/2026 14:43:24] "GET /static/uploads/125_annotated.jpg HTTP/1.1" 200 -
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/benchmark.py', reloading
+INFO:werkzeug: * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/benchmark.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 114-931-859
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 699-562-937
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 699-562-937
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.

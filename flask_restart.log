@@ -1,0 +1,35 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+127.0.0.1 - - [01/Jul/2026 11:44:39] "GET / HTTP/1.1" 302 -
+[2026-07-01 12:35:42,635] INFO in routes: Upload page accessed by user: 6
+127.0.0.1 - - [01/Jul/2026 12:35:42] "GET /upload?file=IMG_20230101_154149_region_jpg.rf.c72ea8b6f91f112c0d60336f0c55cb9a.jpg&file=IMG_20230101_154131_region_jpg.rf.a7cf59c136d0c5705e7515e7a9aa2e54.jpg&file=IMG_20230101_153901_region_jpg.rf.2beef9374fb130b9d78e4f2efa01a640.jpg&file=IMG_20221218_150941_region_jpg.rf.92924a46a8af5f2d6bcd441065a6e680.jpg&file=IMG_20221218_150830_region_jpg.rf.5594cdb673829b6ba9ad3658d35f2953.jpg&file=IMG_20221218_150136_ce_png_jpg.rf.a1fecaffdd4dee352e4ecac5cb35a765.jpg&file=IMG_20221218_150053_region_jpg.rf.9615835399fb8aebff741f66f6fd964f.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:35:42] "GET /static/js/inference.js?v=7 HTTP/1.1" 304 -
+127.0.0.1 - - [01/Jul/2026 12:35:42] "GET /favicon.ico HTTP/1.1" 404 -
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/scratch_regression_check.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/scratch_gain_audit.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+ * Detected change in '/home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112

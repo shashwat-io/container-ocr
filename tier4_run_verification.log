@@ -1,0 +1,10 @@
+================ TIER 4 BENCHMARK — STARTUP VERIFICATION ================
+Process PID:        35862
+Start timestamp:    2026-06-30T13:41:07.616944+05:30
+ocr.py abs path:    /home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py
+ocr.py mtime:       2026-06-30T12:38:19.483618+05:30
+imported __file__:  /home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py
+marker searched:    'Valid (character confusion corrected'
+marker present:     True
+FRESH CODE CONFIRMED
+========================================================================

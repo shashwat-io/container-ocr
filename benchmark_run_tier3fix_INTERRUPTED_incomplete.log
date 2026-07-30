@@ -1,0 +1,41 @@
+Found 786 images
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[50/786] 455s elapsed | avg 9.1s/img | valid so far: 45
+[100/786] 1087s elapsed | avg 10.9s/img | valid so far: 98
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   paddle::AnalysisPredictor::ZeroCopyRun(bool)
+1   paddle::framework::NaiveExecutor::RunInterpreterCore(std::vector<std::string, std::allocator<std::string > > const&, bool, bool)
+2   paddle::framework::InterpreterCore::Run(std::vector<std::string, std::allocator<std::string > > const&, bool, bool, bool, bool)
+3   paddle::framework::PirInterpreter::Run(std::vector<std::string, std::allocator<std::string > > const&, bool, bool, bool, bool)
+4   paddle::framework::PirInterpreter::TraceRunImpl()
+5   paddle::framework::PirInterpreter::TraceRunInstructionList(std::vector<std::unique_ptr<paddle::framework::InstructionBase, std::default_delete<paddle::framework::InstructionBase> >, std::allocator<std::unique_ptr<paddle::framework::InstructionBase, std::default_delete<paddle::framework::InstructionBase> > > > const&)
+6   paddle::framework::PirInterpreter::RunInstructionBase(paddle::framework::InstructionBase*)
+7   paddle::framework::PhiKernelInstruction::Run()
+8   void phi::AddFunctor<float, phi::CPUContext>(phi::CPUContext const&, phi::DenseTensor const&, phi::DenseTensor const&, int, phi::DenseTensor*)
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1782908678 (unix time) try "date -d @1782908678" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x90e0001cbc7) received by PID 109816 (TID 0x78189a688000) from PID 117703 ***]
+

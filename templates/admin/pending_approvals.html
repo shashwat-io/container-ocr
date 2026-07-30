@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Pending Approvals - Container OCR System</title>
+    <link rel="stylesheet" href="/static/vendor/fontawesome-6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap-5.3.0/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .panel-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-md-2">
+            {% include "main/sidebar.html" %}
+        </div>
+        <div class="col-md-10">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Pending Approvals</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="/admin/dashboard">Admin</a></li>
+                    <li class="breadcrumb-item active">Pending Approvals</li>
+                </ol>
+            </nav>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category if category != 'error' else 'danger' }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card panel-card border-0">
+            <div class="card-header bg-white border-0 pt-4 px-4">
+                <h5 class="mb-0">Accounts Awaiting Approval</h5>
+            </div>
+            <div class="card-body p-4">
+                {% if pending_users %}
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Signed Up</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in pending_users %}
+                            <tr id="pending-row-{{ user.id }}">
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.created_at | to_ist('%Y-%m-%d %H:%M') }}</td>
+                                <td class="text-end">
+                                    <form method="POST" action="{{ url_for('admin.approve_user', user_id=user.id) }}" class="d-inline">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-primary btn-sm">Approve</button>
+                                    </form>
+                                    <form method="POST" action="{{ url_for('admin.reject_user', user_id=user.id) }}" class="d-inline" onsubmit="return confirm('Reject and permanently delete the sign-up request for &quot;{{ user.username }}&quot;? This cannot be undone.');">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-5">No accounts are currently pending approval.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+        </div><!-- /col-md-10 -->
+    </div><!-- /row -->
+    </div><!-- /container-fluid -->
+    <!-- Without this, data-bs-dismiss="alert" on the flash messages above did
+         nothing -- Bootstrap's CSS was loaded but its JS never was. -->
+    <script src="/static/vendor/bootstrap-5.3.0/bootstrap.bundle.min.js"></script>
+</body>
+</html>

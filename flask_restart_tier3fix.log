@@ -1,0 +1,59 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.77.7.185:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-548-112
+127.0.0.1 - - [01/Jul/2026 17:32:04] "GET / HTTP/1.1" 302 -
+127.0.0.1 - - [01/Jul/2026 18:38:17] "POST /upload HTTP/1.1" 400 -
+127.0.0.1 - - [01/Jul/2026 18:38:19] "POST /upload HTTP/1.1" 400 -
+[2026-07-01 18:38:20,007] INFO in routes: Upload page accessed by user: 6
+127.0.0.1 - - [01/Jul/2026 18:38:20] "GET /upload?file=IMG_20230101_154149_region_jpg.rf.c72ea8b6f91f112c0d60336f0c55cb9a.jpg&file=IMG_20230101_154131_region_jpg.rf.a7cf59c136d0c5705e7515e7a9aa2e54.jpg&file=IMG_20230101_153901_region_jpg.rf.2beef9374fb130b9d78e4f2efa01a640.jpg&file=IMG_20221218_150941_region_jpg.rf.92924a46a8af5f2d6bcd441065a6e680.jpg&file=IMG_20221218_150830_region_jpg.rf.5594cdb673829b6ba9ad3658d35f2953.jpg&file=IMG_20221218_150136_ce_png_jpg.rf.a1fecaffdd4dee352e4ecac5cb35a765.jpg&file=IMG_20221218_150053_region_jpg.rf.9615835399fb8aebff741f66f6fd964f.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 18:38:20] "GET /static/js/inference.js?v=7 HTTP/1.1" 304 -
+[2026-07-01 18:38:25,625] INFO in predictor: Loading real ML model...
+INFO:app.inference.predictor:Loading real ML model...
+[2026-07-01 18:38:27,690] INFO in predictor: Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+INFO:app.inference.predictor:Loading model from: /home/shashwatkumar/Testing/container_ocr_test/models/best.pt
+[2026-07-01 18:38:27,737] INFO in predictor: Real ML model loaded successfully
+INFO:app.inference.predictor:Real ML model loaded successfully
+[2026-07-01 18:38:27,738] INFO in predictor: Processing image with real model: sample10_full.jpg
+INFO:app.inference.predictor:Processing image with real model: sample10_full.jpg
+
+0: 640x640 1 container_number, 167.9ms
+Speed: 1.5ms preprocess, 167.9ms inference, 0.8ms postprocess per image at shape (1, 3, 640, 640)
+[2026-07-01 18:38:28,036] INFO in ocr: OCR start: bbox=(90.2,131.4,324.3,581.6) crop=254x470 portrait
+INFO:app.inference.ocr:OCR start: bbox=(90.2,131.4,324.3,581.6) crop=254x470 portrait
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[2026-07-01 18:38:31,507] INFO in ocr: Tier 1b (single-line check-digit recovery): 'LXNU152284' → 'LXNU1522843'
+INFO:app.inference.ocr:Tier 1b (single-line check-digit recovery): 'LXNU152284' → 'LXNU1522843'
+[2026-07-01 18:38:32,958] INFO in ocr: Tier 1b (single-line check-digit recovery): 'LXNU152284' → 'LXNU1522843'
+INFO:app.inference.ocr:Tier 1b (single-line check-digit recovery): 'LXNU152284' → 'LXNU1522843'
+[2026-07-01 18:38:32,958] INFO in ocr:   +90: code='LXNU1522843' valid=True conf=0.977
+INFO:app.inference.ocr:  +90: code='LXNU1522843' valid=True conf=0.977
+[2026-07-01 18:38:32,959] INFO in ocr:   -90: code='LXNU1522843' valid=True conf=0.981
+INFO:app.inference.ocr:  -90: code='LXNU1522843' valid=True conf=0.981
+[2026-07-01 18:38:32,959] INFO in ocr: Portrait: code='LXNU1522843' valid=True conf=0.981
+INFO:app.inference.ocr:Portrait: code='LXNU1522843' valid=True conf=0.981
+[2026-07-01 18:38:32,959] INFO in ocr: OCR final: code='LXNU1522843' valid=True reason=Valid (check-digit recovered)
+INFO:app.inference.ocr:OCR final: code='LXNU1522843' valid=True reason=Valid (check-digit recovered)
+[2026-07-01 18:38:32,959] INFO in predictor: Real model detected 1 objects
+INFO:app.inference.predictor:Real model detected 1 objects
+127.0.0.1 - - [01/Jul/2026 18:38:32] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2026 18:38:32] "POST /upload HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 18:38:32] "GET /static/uploads/133_annotated.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2026 18:38:32] "GET /static/uploads/133_annotated.jpg HTTP/1.1" 200 -

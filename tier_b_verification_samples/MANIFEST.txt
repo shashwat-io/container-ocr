@@ -1,0 +1,185 @@
+Tier-B (check-digit-recovered) verification samples — full image + pipeline crop (padding=10), NO OCR run
+
+Full bucket-b population: 258 | Sample: 20 (excludes 6 already-reviewed)
+
+Sample tier tally: {'Tier1b': 12, 'Tier3-Pass2': 5, 'Tier2-recovery': 3} | Sample origin tally: {'docpp-ON primary': 11, 'docpp-OFF retry': 9}
+
+sample1
+  source image      : IMG_0472_region_JPG_jpg.rf.d7e18175a4cba2ffc324309259ced4db.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : CRSU1571021
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 1.0
+  yolo box          : (7,0,554,639)  crop=(567, 659)
+
+sample2
+  source image      : z4945347794283_9b4421aa678f11142db6f746c884f536_jpg.rf.0332ff270129d4f710a4419147aaa288.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : UWLU4113107
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 1.0
+  yolo box          : (262,78,430,453)  crop=(188, 394)
+
+sample3
+  source image      : IMG_20221218_145612_region_jpg.rf.acd73660b195a22d7289cdc5af16a6ad.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : CXNU1867888
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 0.97
+  yolo box          : (22,32,610,587)  crop=(607, 574)
+
+sample4
+  source image      : 8668723214655100260_0000_jpg.rf.0cbda52738d2c925da9b8efd7e208e66.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : UWLU4112688
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 0.92
+  yolo box          : (252,138,386,343)  crop=(153, 224)
+
+sample5
+  source image      : 8292823959126864327_0000_jpg.rf.a2179090131900097967f28debebcbcb.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : UWLU4106638
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 0.92
+  yolo box          : (226,19,404,300)  crop=(198, 300)
+
+sample6
+  source image      : 3324797045082915390_0040_jpg.rf.0691d94d9c640b08a850b9e95bb06307.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : TEMU2890871
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 1.0
+  yolo box          : (189,61,414,418)  crop=(244, 376)
+
+sample7
+  source image      : IMG_0848_region_JPG_jpg.rf.0ae26d276cb1c578ecc5da4163c82fdc.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : KOCU4579920
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 0.99
+  yolo box          : (53,0,617,639)  crop=(583, 658)
+
+sample8
+  source image      : IMG_0510_region_JPG_jpg.rf.ecab39de1f219f10df34f9bc038bcbe0.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : CXNU1853689
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 1.0
+  yolo box          : (30,0,599,639)  crop=(588, 659)
+
+sample9
+  source image      : 700135891807221341_0360_jpg.rf.37d7c85f7f094fd8bcf0ae0efe1ef103.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : TLLU3490382
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 1.0
+  yolo box          : (172,12,461,488)  crop=(309, 495)
+
+sample10
+  source image      : IMG_0308_ce_png_jpg.rf.ffc02b87bc1c653ec2757fce14e4fe37.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : WHSU2728769
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 0.95
+  yolo box          : (150,220,494,516)  crop=(364, 316)
+
+sample11
+  source image      : IMG_0505_ce_png_jpg.rf.aa61a4b0eb5cfbb22776b56034e62228.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : CXNU1527888
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 0.97
+  yolo box          : (286,189,583,440)  crop=(317, 271)
+
+sample12
+  source image      : IMG_0547_ce_png_jpg.rf.59f46edd9f317636b8ec2a2833ef3695.jpg
+  box_idx           : 0 of 1
+  tier              : Tier1b
+  claimed code      : GXND1880291
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 0.91
+  yolo box          : (167,50,367,359)  crop=(220, 328)
+
+sample13
+  source image      : IMG_0326_ce_png_jpg.rf.77150ef5f2ef7a661e303b6f409fa4c4.jpg
+  box_idx           : 0 of 1
+  tier              : Tier3-Pass2
+  claimed code      : MXCU0004831
+  docpp origin      : docpp-ON primary
+  owner-line conf   : None
+  yolo box          : (209,244,473,621)  crop=(283, 396)
+
+sample14
+  source image      : 4654256381207060402_0160_jpg.rf.4913820186121d4fe9852895209eb845.jpg
+  box_idx           : 0 of 1
+  tier              : Tier3-Pass2
+  claimed code      : SEKU6384890
+  docpp origin      : docpp-ON primary
+  owner-line conf   : None
+  yolo box          : (182,82,370,378)  crop=(208, 316)
+
+sample15
+  source image      : Event20231020101456005-Avi_8155_jpg.rf.5f85da7a415d43341c89bdc836a0e0b2.jpg
+  box_idx           : 0 of 1
+  tier              : Tier3-Pass2
+  claimed code      : CAOT1115508
+  docpp origin      : docpp-ON primary
+  owner-line conf   : None
+  yolo box          : (274,52,393,471)  crop=(138, 439)
+
+sample16
+  source image      : IMG_0425_region_JPG_jpg.rf.c4e444f29b192053374eeaabf636c44b.jpg
+  box_idx           : 0 of 1
+  tier              : Tier3-Pass2
+  claimed code      : CAXU1703737
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : None
+  yolo box          : (21,6,612,605)  crop=(610, 618)
+
+sample17
+  source image      : Event20231020100956005-Avi_7595_jpg.rf.41179bff1dafc40b9bb7356c804c2684.jpg
+  box_idx           : 0 of 1
+  tier              : Tier3-Pass2
+  claimed code      : SWGU6682027
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : None
+  yolo box          : (378,47,484,431)  crop=(126, 404)
+
+sample18
+  source image      : IMG_0405_ce_png_jpg.rf.11c1b32a4f31e69c821436669eaeb268.jpg
+  box_idx           : 0 of 1
+  tier              : Tier2-recovery
+  claimed code      : BENU1206852
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 1.0
+  yolo box          : (248,90,418,437)  crop=(190, 366)
+
+sample19
+  source image      : Event20231020095956005-Avi_1945_jpg.rf.044e2ef1b590d5feb6d27a94056a4329.jpg
+  box_idx           : 0 of 1
+  tier              : Tier2-recovery
+  claimed code      : SKHU6302207
+  docpp origin      : docpp-ON primary
+  owner-line conf   : 1.0
+  yolo box          : (205,32,352,201)  crop=(166, 188)
+
+sample20
+  source image      : IMG_20221218_150825_region_jpg.rf.553ee07537e6f95f915974379556b27b.jpg
+  box_idx           : 0 of 1
+  tier              : Tier2-recovery
+  claimed code      : CXNU1946354
+  docpp origin      : docpp-OFF retry
+  owner-line conf   : 1.0
+  yolo box          : (15,80,611,590)  crop=(615, 529)

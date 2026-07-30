@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Container Scanning System</title>
+    <link rel="stylesheet" href="/static/vendor/fontawesome-6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap-5.3.0/bootstrap.min.css">
+    {# Was an unpinned jsdelivr chart.js CDN URL with no version in the path
+       (resolves to whatever is "latest" at request time). Vendored the
+       version that resolved to on 29-07-2026 (v4.5.1) so the chart doesn't
+       silently start behaving differently after an upstream release. #}
+    <script src="/static/vendor/chartjs-4.5.1/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 10px 0;
+            color: #7f8c8d;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .change-up {
+            color: #27ae60;
+        }
+
+        .change-down {
+            color: #e74c3c;
+        }
+
+        .chart-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-card h3 {
+            margin: 0 0 20px 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .small-chart {
+            height: 250px;
+        }
+
+        .update-time {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 15px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            {% include "main/sidebar.html" %}
+        </div>
+        <div class="col-md-10">
+    <div class="container">
+        <div class="header">
+            <h1>Analytics Dashboard</h1>
+            <p style="color: #7f8c8d; margin: 0;">Real-time statistics and insights for container scanning operations</p>
+        </div>
+
+        {% if error %}
+        <div class="error-message">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Scans</h3>
+                <div class="stat-value">{{ stats.total_scans or 0 }}</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Unique Users</h3>
+                <div class="stat-value">{{ stats.unique_users or 0 }}</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Average Confidence</h3>
+                <div class="stat-value">{{ "%.1f%%"|format(stats.avg_confidence or 0) }}</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>Validation Success Rate</h3>
+                <div class="stat-value">{{ "%.1f%%"|format(stats.validation_success_rate or 0) }}</div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-card">
+                <h3>Daily Scan Activity (Last 30 Days)</h3>
+                <div class="chart-container">
+                    <canvas id="dailyScansChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="update-time">
+            Last updated: {{ now().strftime("%Y-%m-%d %H:%M") if now is defined else "" }}
+        </div>
+    </div>
+
+    <script>
+        const dailyScansData = {{ stats.daily_scans|tojson|safe }};
+
+        const dailyLabels = Object.keys(dailyScansData);
+        const dailyCounts = Object.values(dailyScansData);
+
+        const dailyScansChart = new Chart(document.getElementById('dailyScansChart'), {
+            type: 'line',
+            data: {
+                labels: dailyLabels,
+                datasets: [{
+                    label: 'Scans',
+                    data: dailyCounts,
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 12
+                        },
+                        callbacks: {
+                            label: function(context) {
+                                return `Scans: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+
+        function updateChartData(newData) {
+            dailyScansChart.data.labels = Object.keys(newData.daily_scans);
+            dailyScansChart.data.datasets[0].data = Object.values(newData.daily_scans);
+            dailyScansChart.update();
+        }
+
+        function refreshDashboard() {
+            fetch('/dashboard/data')
+                .then(response => response.json())
+                .then(data => {
+                    updateChartData(data.stats);
+                })
+                .catch(error => {
+                    console.error('Error refreshing dashboard:', error);
+                });
+        }
+
+        setInterval(refreshDashboard, 30000);
+    </script>
+    </div><!-- /container -->
+        </div><!-- /col-md-10 -->
+    </div><!-- /row -->
+    </div><!-- /container-fluid -->
+</body>
+</html>

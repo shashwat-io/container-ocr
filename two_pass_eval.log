@@ -1,0 +1,98 @@
+incomplete (target gains): 153
+currently-valid sample (regression test): 100
+
+=== PART 1: incomplete rows with two-pass (docpp ON, fallback OFF) ===
+/home/shashwatkumar/Testing/container_ocr_test/scratch_two_pass_eval.py:97: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/scratch_two_pass_eval.py:40: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  crop_np = np.array(crop_image)
+/home/shashwatkumar/Testing/container_ocr_test/scratch_two_pass_eval.py:97: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+  [25/153] gains so far: 9  (187s)
+  [50/153] gains so far: 11  (351s)
+  [75/153] gains so far: 16  (596s)
+  [100/153] gains so far: 20  (813s)
+  [125/153] gains so far: 24  (1024s)
+  [150/153] gains so far: 30  (1247s)
+
+=== PART 2: currently-valid sample, two-pass re-run ===
+  [25/100] still_pass=25 regress=0 ctrl_mismatch=0 (1437s)
+  [50/100] still_pass=50 regress=0 ctrl_mismatch=0 (1612s)
+  [75/100] still_pass=75 regress=0 ctrl_mismatch=0 (1816s)
+  [100/100] still_pass=100 regress=0 ctrl_mismatch=0 (1990s)
+
+======================================================================
+RESULTS — two-pass 'best valid wins' (docpp ON primary, docpp OFF fallback)
+======================================================================
+
+PART 1 GAINS — previously-incomplete now VALID: 30 / 153
+  +  1480134690284023198_0280_jpg.rf.7bd6af5d2e8d48 [box 0] -> 'CBHU8805106'  (Valid (docpp-off retry))
+  +  1526628520153976338_0070_jpg.rf.7486e1aebc7abb [box 0] -> 'UWLU4113920'  (Valid (docpp-off retry))
+  +  1526628520153976338_0090_jpg.rf.b7a3bc3b78bb68 [box 0] -> 'UWLU4113920'  (Valid (docpp-off retry))
+  +  215637110766982368_0000_jpg.rf.45612410d2d5291 [box 0] -> 'EGHU3769603'  (Valid (docpp-off retry))
+  +  2305812729909048674_0230_jpg.rf.f1b4507c8febb9 [box 1] -> 'TCLU8765210'  (Valid (docpp-off retry))
+  +  3864162003561327490_0050_jpg.rf.fcb6531afd25fd [box 0] -> 'EGHU3769033'  (Valid (docpp-off retry))
+  +  5035143762191363788_0090_jpg.rf.a2bc898628ef1b [box 0] -> 'RFCU5051496'  (Valid (docpp-off retry))
+  +  7379698119094862366_0270_jpg.rf.88d430653a7282 [box 0] -> 'TCNU7574367'  (Valid (docpp-off retry))
+  +  8668723214655100260_0210_jpg.rf.3ec86bd33f1cba [box 0] -> 'UWLU4112688'  (Valid (docpp-off retry))
+  +  8668723214655100260_0280_jpg.rf.69fb9188ce27c5 [box 0] -> 'UWLU4112688'  (Valid (docpp-off retry))
+  +  Event20231020000956005-Avi_5505_jpg.rf.d085776 [box 0] -> 'CAIU6253013'  (Valid (docpp-off retry))
+  +  Event20231020001456005-Avi_7745_jpg.rf.abf6cba [box 0] -> 'CMAU1284740'  (Valid (docpp-off retry))
+  +  Event20231020001956005-Avi_3260_jpg.rf.6d3babe [box 0] -> 'CMAU1284740'  (Valid (docpp-off retry))
+  +  Event20231020001956005-Avi_3275_jpg.rf.a35ae89 [box 0] -> 'CMAU1284740'  (Valid (docpp-off retry))
+  +  Event20231020002956004-Avi_2920_jpg.rf.b366a0d [box 0] -> 'TLLU3254828'  (Valid (docpp-off retry))
+  +  Event20231020003455004-Avi_7955_jpg.rf.a807cda [box 0] -> 'BMOU6513487'  (Valid (docpp-off retry))
+  +  IMG_0414_region_JPG_jpg.rf.80240fe97c3b4be41cd [box 0] -> 'MRKU8476867'  (Valid (docpp-off retry))
+  +  IMG_0425_region_JPG_jpg.rf.f070d25dc1c724a5c60 [box 0] -> 'CAXU7037392'  (Valid (docpp-off retry))
+  +  IMG_0460_region_JPG_jpg.rf.4241eb7de6b650afcdf [box 0] -> 'TCNU2537571'  (Valid (docpp-off retry))
+  +  IMG_0501_ce_png_jpg.rf.c9b3f0bad3c8ef1bde48b3d [box 0] -> 'CXNU1523199'  (Valid (docpp-off retry))
+  +  IMG_0505_ce_png_jpg.rf.aa61a4b0eb5cfbb22776b56 [box 0] -> 'CXNU1527888'  (Valid (docpp-off retry))
+  +  IMG_0547_ce_png_jpg.rf.59f46edd9f317636b8ec2a2 [box 0] -> 'GXND1880291'  (Valid (docpp-off retry))
+  +  IMG_20221218_145335_ce_png_jpg.rf.f5b0b74e1ba6 [box 0] -> 'UXNU1520664'  (Valid (docpp-off retry))
+  +  IMG_20221218_145551_region_jpg.rf.8dbbdb2a0bc9 [box 0] -> 'UXNU1846096'  (Valid (docpp-off retry))
+  +  IMG_20221218_150830_region_jpg.rf.5594cdb67382 [box 0] -> 'CXHU1152209'  (Valid (docpp-off retry))
+  +  IMG_20221218_151329_region_jpg.rf.c7fe26de01b1 [box 0] -> 'CXNU1522947'  (Valid (docpp-off retry))
+  +  IMG_20230101_153756_region_jpg.rf.8650e614a5a6 [box 0] -> 'CXNU1818498'  (Valid (docpp-off retry))
+  +  IMG_20230101_153913_region_jpg.rf.8490b3f3e9c8 [box 0] -> 'CXNU1810970'  (Valid (docpp-off retry))
+  +  IMG_20230101_154144_region_jpg.rf.d00f2a9d8441 [box 0] -> 'CXNU1893568'  (Valid (docpp-off retry))
+  +  IMG_20230101_154149_region_jpg.rf.c72ea8b6f91f [box 0] -> 'CXXU1927420'  (Valid (docpp-off retry))
+PART 1 still invalid: 123
+
+PART 2 REGRESSIONS (CSV valid, two-pass invalid): 0
+  0 regressions found
+
+PART 2 still-pass (CSV valid & two-pass valid): 100
+PART 2 SILENT CODE CHANGES (valid->valid but code differs): 3
+  ~  IMG_20221218_150136_ce_png_jpg.rf.a1fecaffdd4d [box 0] : 'UXNU1803216' -> 'CXNU1803219'  (Valid (docpp-off retry))
+  ~  2305812729909048674_0230_jpg.rf.a6d41980b8b67e [box 1] : 'TULU8765215' -> 'TCLU8765210'  (Valid (docpp-off retry))
+  ~  IMG_20230101_154622_region_jpg.rf.a251801c75f2 [box 0] : 'JGGN0953812' -> 'CXNU1835601'  (Valid (docpp-off retry))
+
+PART 2 sanity: valid rows where fallback pass fired despite primary already being valid: 11
+  !  2305812729909048674_0110_jpg.rf.fc4c01cefa934e [box 0] : 'TIHU5106995'  <-- BUG: primary-valid result was overridden
+  !  2305812729909048674_0030_jpg.rf.53dbd8c00e259a [box 0] : 'TIHU5106995'  <-- BUG: primary-valid result was overridden
+  !  IMG_20221218_150136_ce_png_jpg.rf.a1fecaffdd4d [box 0] : 'UXNU1803216'  <-- BUG: primary-valid result was overridden
+  !  IMG_20230101_155023_region_jpg.rf.9c59d027c8ab [box 0] : 'CXNU1972203'  <-- BUG: primary-valid result was overridden
+  !  1480134690284023198_0270_jpg.rf.0ea121400074ad [box 0] : 'CBHU8805106'  <-- BUG: primary-valid result was overridden
+  !  2305812729909048674_0230_jpg.rf.a6d41980b8b67e [box 1] : 'TULU8765215'  <-- BUG: primary-valid result was overridden
+  !  2090228096011338219_0390_jpg.rf.ee0aff0ddc2ba9 [box 0] : 'CCLU3356105'  <-- BUG: primary-valid result was overridden
+  !  6427132303892274193_0100_jpg.rf.57b66c4c6cd0a7 [box 0] : 'TIHU5115220'  <-- BUG: primary-valid result was overridden
+  !  z4945319774135_1c3a51570e061a1f2a4f791dc0f93f1 [box 0] : 'TGBU8066545'  <-- BUG: primary-valid result was overridden
+  !  IMG_20230101_154622_region_jpg.rf.a251801c75f2 [box 0] : 'JGGN0953812'  <-- BUG: primary-valid result was overridden
+  !  7395311306943615078_0160_jpg.rf.fda8f5b9061154 [box 0] : 'TCLU8359150'  <-- BUG: primary-valid result was overridden
+
+PART 2 control mismatches (couldn't reproduce CSV-valid at all; excluded as noise): 0
+
+Total elapsed: 1990s
+DONE

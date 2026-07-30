@@ -1,0 +1,96 @@
+Instability check samples — comparing EARLIER (610/786 baseline run) vs
+TODAY'S RE-RUN (targeted 71-row Tier3-Pass2 test) claimed codes for the same crop.
+Full image + pipeline crop (padding=10), NO fresh OCR run for this script.
+
+Total 'different code' rows: 29 | Sample: 10
+Sample origin composition: {'docpp-ON primary (was sufficient before)': 10}
+
+sample1
+  source image   : IMG_20221218_150235_region_jpg.rf.8fdc72239b1b8febde8ac57535bcf8d9.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : LXNU1908034
+  RERUN code     : CXNU1908035
+  match?         : DIFFERENT
+  yolo box       : (95,0,597,639)  crop=(521, 659)
+
+sample2
+  source image   : 1480134690284023198_0200_jpg.rf.3e902b000d53871cdad4f6c71ecbd2ac.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : CBHU8833453
+  RERUN code     : CBHU8805106
+  match?         : DIFFERENT
+  yolo box       : (222,46,381,313)  crop=(178, 287)
+
+sample3
+  source image   : 1114039705751937665_0050_jpg.rf.f5c42f338dbdc3a8898410b03bba225c.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : SUPE8196295
+  RERUN code     : TCLU4897918
+  match?         : DIFFERENT
+  yolo box       : (200,20,424,368)  crop=(244, 368)
+
+sample4
+  source image   : IMG_20230101_153455_region_jpg.rf.8d0c0664f3b6fca60aa9bd91224bd83e.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : LXNU1839864
+  RERUN code     : CXNU1839865
+  match?         : DIFFERENT
+  yolo box       : (87,0,621,636)  crop=(553, 655)
+
+sample5
+  source image   : 4654256381207060402_0330_jpg.rf.329e7ed4f9252572a06d23d48dd04d8b.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : CKMS6384892
+  RERUN code     : SEKU6384890
+  match?         : DIFFERENT
+  yolo box       : (183,72,376,372)  crop=(212, 320)
+
+sample6
+  source image   : 4654256381207060402_0140_jpg.rf.18d5092262b91321630a5c305be40ef4.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : SEKU6384890
+  RERUN code     : CKMS6848397
+  match?         : DIFFERENT
+  yolo box       : (179,82,369,380)  crop=(209, 317)
+
+sample7
+  source image   : IMG_20230101_154131_region_jpg.rf.a7cf59c136d0c5705e7515e7a9aa2e54.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : NOUN6699362
+  RERUN code     : CXNU1309361
+  match?         : DIFFERENT
+  yolo box       : (88,0,551,636)  crop=(482, 655)
+
+sample8
+  source image   : 215637110766982368_0310_jpg.rf.b32f61c1624da3bbd941ec9d24c0bd88.jpg
+  box_idx        : 0 of 2
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : EGHU3769223
+  RERUN code     : EGHU3769603
+  match?         : DIFFERENT
+  yolo box       : (200,296,465,345)  crop=(284, 69)
+
+sample9
+  source image   : IMG_20230101_155025_region_jpg.rf.1f3657ce9420bd348516c1716ce63c1b.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : LXNU1957445
+  RERUN code     : CXNU1957446
+  match?         : DIFFERENT
+  yolo box       : (88,17,562,606)  crop=(493, 608)
+
+sample10
+  source image   : IMG_20221218_145243_ce_png_jpg.rf.9f831f17670c4a5f43028da41b8ff11b.jpg
+  box_idx        : 0 of 1
+  docpp origin   : docpp-ON primary (was sufficient before)
+  EARLIER code   : LXNU1522843
+  RERUN code     : CXNU1522844
+  match?         : DIFFERENT
+  yolo box       : (90,131,324,582)  crop=(254, 470)

@@ -1,0 +1,47 @@
+Found 786 images (model=models/best_resplit.pt, test_dir=/home/shashwatkumar/Testing/container_ocr_test/container.v2i.yolov11.resplit/test/images, sample_file=None)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[CHECKPOINT 100/786] 984s elapsed | avg 9.8s/img | pass so far: 49 | fail so far: 55 | tiers: Tier1-exact:13, Tier1b-recovery:6, Tier2-exact:3, Tier2-recovery:3, Tier3-fallback-novalid:8, Tier4-confusion:14, docpp-off-retry:1, unresolved:1 | checkpoint CSV written (104 rows)
+[CHECKPOINT 200/786] 2338s elapsed | avg 11.7s/img | pass so far: 96 | fail so far: 108 | tiers: Tier1-exact:31, Tier1b-recovery:6, Tier2-exact:10, Tier2-recovery:3, Tier3-fallback-novalid:26, Tier4-confusion:17, docpp-off-retry:2, unresolved:1 | checkpoint CSV written (204 rows)
+[CHECKPOINT 300/786] 3385s elapsed | avg 11.3s/img | pass so far: 173 | fail so far: 131 | tiers: Tier1-exact:66, Tier1b-recovery:8, Tier2-exact:14, Tier2-recovery:6, Tier3-fallback-novalid:40, Tier4-confusion:30, docpp-off-retry:4, unresolved:5 | checkpoint CSV written (304 rows)
+[CHECKPOINT 400/786] 4968s elapsed | avg 12.4s/img | pass so far: 219 | fail so far: 186 | tiers: Tier1-exact:83, Tier1b-recovery:12, Tier2-exact:14, Tier2-recovery:7, Tier3-fallback-novalid:56, Tier4-confusion:37, check-digit-recovery:1, docpp-off-retry:4, unresolved:5 | checkpoint CSV written (405 rows)
+[CHECKPOINT 500/786] 5635s elapsed | avg 11.3s/img | pass so far: 284 | fail so far: 232 | tiers: Tier1-exact:99, Tier1b-recovery:47, Tier2-exact:18, Tier2-recovery:14, Tier3-fallback-novalid:58, Tier4-confusion:38, check-digit-recovery:1, docpp-off-retry:4, unresolved:5 | checkpoint CSV written (516 rows)
+[CHECKPOINT 600/786] 6447s elapsed | avg 10.7s/img | pass so far: 354 | fail so far: 265 | tiers: Tier1-exact:111, Tier1b-recovery:83, Tier2-exact:22, Tier2-recovery:15, Tier3-fallback-novalid:68, Tier4-confusion:40, check-digit-recovery:1, docpp-off-retry:4, unresolved:10 | checkpoint CSV written (619 rows)
+[CHECKPOINT 700/786] 7287s elapsed | avg 10.4s/img | pass so far: 439 | fail so far: 287 | tiers: Tier1-exact:143, Tier1b-recovery:116, Tier2-exact:31, Tier2-recovery:16, Tier3-fallback-novalid:72, Tier4-confusion:41, check-digit-recovery:1, docpp-off-retry:6, unresolved:13 | checkpoint CSV written (726 rows)
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   paddle::AnalysisPredictor::ZeroCopyRun(bool)
+1   paddle::framework::NaiveExecutor::RunInterpreterCore(std::vector<std::string, std::allocator<std::string > > const&, bool, bool)
+2   paddle::framework::InterpreterCore::Run(std::vector<std::string, std::allocator<std::string > > const&, bool, bool, bool, bool)
+3   paddle::framework::PirInterpreter::Run(std::vector<std::string, std::allocator<std::string > > const&, bool, bool, bool, bool)
+4   paddle::framework::PirInterpreter::TraceRunImpl()
+5   paddle::framework::PirInterpreter::TraceRunInstructionList(std::vector<std::unique_ptr<paddle::framework::InstructionBase, std::default_delete<paddle::framework::InstructionBase> >, std::allocator<std::unique_ptr<paddle::framework::InstructionBase, std::default_delete<paddle::framework::InstructionBase> > > > const&)
+6   paddle::framework::PirInterpreter::RunInstructionBase(paddle::framework::InstructionBase*)
+7   paddle::framework::PhiKernelInstruction::Run()
+8   phi::KernelImpl<void (*)(phi::CPUContext const&, phi::DenseTensor const&, phi::DenseTensor const&, std::vector<int, std::allocator<int> > const&, std::vector<int, std::allocator<int> > const&, std::string const&, std::vector<int, std::allocator<int> > const&, int, std::string const&, phi::DenseTensor*), &(void phi::ConvKernel<float, phi::CPUContext>(phi::CPUContext const&, phi::DenseTensor const&, phi::DenseTensor const&, std::vector<int, std::allocator<int> > const&, std::vector<int, std::allocator<int> > const&, std::string const&, std::vector<int, std::allocator<int> > const&, int, std::string const&, phi::DenseTensor*))>::Compute(phi::KernelContext*)
+9   void phi::ConvKernelImpl<float, phi::CPUContext>(phi::CPUContext const&, phi::DenseTensor const&, phi::DenseTensor const&, std::vector<int, std::allocator<int> > const&, std::vector<int, std::allocator<int> > const&, std::string const&, int, std::vector<int, std::allocator<int> > const&, std::string const&, phi::DenseTensor*)
+10  cblas_sgemm
+11  SGEMM
+12  mkl_blas_sgemm
+13  __kmpc_fork_call
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1784208460 (unix time) try "date -d @1784208460" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x90e000008bb) received by PID 59800 (TID 0x706619d75000) from PID 2235 ***]
+

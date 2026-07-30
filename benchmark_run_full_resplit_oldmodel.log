@@ -1,0 +1,44 @@
+Found 786 images (model=models/best.pt, test_dir=/home/shashwatkumar/Testing/container_ocr_test/container.v2i.yolov11.resplit/test/images, sample_file=None)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+[CHECKPOINT 100/786] 1061s elapsed | avg 10.6s/img | pass so far: 51 | fail so far: 52 | tiers: Tier1-exact:13, Tier1b-recovery:9, Tier2-exact:3, Tier2-recovery:3, Tier3-fallback-novalid:7, Tier4-confusion:15, unresolved:1 | checkpoint CSV written (103 rows)
+[CHECKPOINT 200/786] 2569s elapsed | avg 12.8s/img | pass so far: 95 | fail so far: 108 | tiers: Tier1-exact:28, Tier1b-recovery:10, Tier2-exact:13, Tier2-recovery:3, Tier3-fallback-novalid:23, Tier4-confusion:17, unresolved:1 | checkpoint CSV written (203 rows)
+[CHECKPOINT 300/786] 3682s elapsed | avg 12.3s/img | pass so far: 177 | fail so far: 126 | tiers: Tier1-exact:67, Tier1b-recovery:11, Tier2-exact:18, Tier2-recovery:7, Tier3-fallback-novalid:31, Tier4-confusion:37, docpp-off-retry:1, unresolved:5 | checkpoint CSV written (303 rows)
+[CHECKPOINT 400/786] 5257s elapsed | avg 13.1s/img | pass so far: 222 | fail so far: 183 | tiers: Tier1-exact:87, Tier1b-recovery:15, Tier2-exact:19, Tier2-recovery:8, Tier3-fallback-novalid:41, Tier4-confusion:45, docpp-off-retry:2, unresolved:5 | checkpoint CSV written (405 rows)
+[CHECKPOINT 500/786] 5834s elapsed | avg 11.7s/img | pass so far: 296 | fail so far: 209 | tiers: Tier1-exact:105, Tier1b-recovery:53, Tier2-exact:26, Tier2-recovery:13, Tier3-fallback-novalid:45, Tier4-confusion:46, docpp-off-retry:2, unresolved:6 | checkpoint CSV written (505 rows)
+[CHECKPOINT 600/786] 6505s elapsed | avg 10.8s/img | pass so far: 354 | fail so far: 251 | tiers: Tier1-exact:114, Tier1b-recovery:88, Tier2-exact:28, Tier2-recovery:19, Tier3-fallback-novalid:47, Tier4-confusion:48, docpp-off-retry:3, unresolved:7 | checkpoint CSV written (605 rows)
+[CHECKPOINT 700/786] 7310s elapsed | avg 10.4s/img | pass so far: 434 | fail so far: 273 | tiers: Tier1-exact:138, Tier1b-recovery:125, Tier2-exact:38, Tier2-recovery:21, Tier3-fallback-novalid:50, Tier4-confusion:52, docpp-off-retry:3, unresolved:7 | checkpoint CSV written (707 rows)
+[CHECKPOINT 786/786] 8513s elapsed | avg 10.8s/img | pass so far: 510 | fail so far: 334 | tiers: Tier1-exact:161, Tier1b-recovery:149, Tier2-exact:43, Tier2-recovery:21, Tier3-Pass1:1, Tier3-fallback-novalid:64, Tier4-confusion:61, docpp-off-retry:3, unresolved:7 | checkpoint CSV written (844 rows)
+
+=== BENCHMARK RESULTS (LIVE, RESPLIT) ===
+Model:            models/best.pt
+Total images:     786
+YOLO detected:    786 (100.0%)
+OCR read code:    800 (101.8% of detected)
+ISO 6346 valid:   510 / 786
+No detection:     0 (0.0%)
+
+--- Tier breakdown (passing rows only) ---
+  Tier1-exact: 161
+  Tier1b-recovery: 149
+  Tier3-fallback-novalid: 64
+  Tier4-confusion: 61
+  Tier2-exact: 43
+  Tier2-recovery: 21
+  unresolved: 7
+  docpp-off-retry: 3
+  Tier3-Pass1: 1
+
+Total time:       8513s | Avg per image: 10.8s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/benchmark_results_full_resplit_OLDMODEL.csv
+RUN COMPLETED UNINTERRUPTED

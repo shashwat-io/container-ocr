@@ -1,0 +1,112 @@
+Tier3-Pass2 deep-dive verification samples — full image + pipeline crop (padding=10), NO OCR run
+NOTE: Tier3-Pass2 matches span a sliding window over concatenated multi-line OCR text,
+not tied to a single detection box, so no per-line confidence is available for any row here
+(confirmed structural gap from the prior investigation).
+
+Full Tier3-Pass2 population: 71 | Excluded (already reviewed): 6 | Sample: 15
+Sample origin split: ON=8 OFF=7
+
+sample1
+  source image  : 2305812729909048674_0210_jpg.rf.c5dde3fb896a59ca75f128e0b5086413.jpg
+  box_idx       : 1 of 2
+  claimed code  : TULU8765215
+  docpp origin  : docpp-ON primary
+  yolo box      : (269,17,370,148)  crop=(120, 150)
+
+sample2
+  source image  : Event20231020095956004-Avi_1885_jpg.rf.516581c3c1cf853f73c427513fc56158.jpg
+  box_idx       : 0 of 1
+  claimed code  : SKHU6302207
+  docpp origin  : docpp-ON primary
+  yolo box      : (39,35,172,203)  crop=(153, 188)
+
+sample3
+  source image  : Event20231020100456005-Avi_0025_jpg.rf.feb183c4f8f580c0f36ec05f9a2871f1.jpg
+  box_idx       : 0 of 1
+  claimed code  : LAAU2158647
+  docpp origin  : docpp-ON primary
+  yolo box      : (370,127,466,490)  crop=(115, 383)
+
+sample4
+  source image  : 1480134690284023198_0200_jpg.rf.3e902b000d53871cdad4f6c71ecbd2ac.jpg
+  box_idx       : 0 of 1
+  claimed code  : CBHU8833453
+  docpp origin  : docpp-ON primary
+  yolo box      : (222,46,381,313)  crop=(178, 287)
+
+sample5
+  source image  : DSCF6490_JPG_ce_png_jpg.rf.8897e06d5d852b8687cf7c51f9d9b6e6.jpg
+  box_idx       : 0 of 1
+  claimed code  : GUXU5230528
+  docpp origin  : docpp-ON primary
+  yolo box      : (131,0,457,550)  crop=(345, 569)
+
+sample6
+  source image  : IMG_20221218_145521_region_jpg.rf.fb94e7d58d5f14d3c640b6d415b585f6.jpg
+  box_idx       : 0 of 1
+  claimed code  : LXNU1905138
+  docpp origin  : docpp-ON primary
+  yolo box      : (15,0,639,639)  crop=(643, 658)
+
+sample7
+  source image  : 700135891807221341_0050_jpg.rf.201ac1fce5ee4cc9e53c091f24722dca.jpg
+  box_idx       : 0 of 1
+  claimed code  : MGNN8687835
+  docpp origin  : docpp-ON primary
+  yolo box      : (166,14,452,490)  crop=(305, 496)
+
+sample8
+  source image  : IMG_20221218_150221_region_jpg.rf.3071b6ec8d1afddc2f1ce645fb5cb3e4.jpg
+  box_idx       : 0 of 1
+  claimed code  : CXNO1818344
+  docpp origin  : docpp-ON primary
+  yolo box      : (11,13,634,608)  crop=(642, 614)
+
+sample9
+  source image  : 3864162003561327490_0070_jpg.rf.5855c7d40fe329fce69fbff537890b39.jpg
+  box_idx       : 0 of 1
+  claimed code  : EGHU6039229
+  docpp origin  : docpp-OFF retry
+  yolo box      : (195,142,473,197)  crop=(298, 74)
+
+sample10
+  source image  : IMG_20221218_150830_region_jpg.rf.5594cdb673829b6ba9ad3658d35f2953.jpg
+  box_idx       : 0 of 1
+  claimed code  : CXHU1152209
+  docpp origin  : docpp-OFF retry
+  yolo box      : (20,61,628,505)  crop=(627, 464)
+
+sample11
+  source image  : Event20231020101456005-Avi_8150_jpg.rf.a0f136397df97642949280d063951688.jpg
+  box_idx       : 0 of 1
+  claimed code  : TUXD7163246
+  docpp origin  : docpp-OFF retry
+  yolo box      : (359,51,470,465)  crop=(131, 433)
+
+sample12
+  source image  : IMG_20230101_154144_region_jpg.rf.d00f2a9d8441404848006ee2b485a526.jpg
+  box_idx       : 0 of 1
+  claimed code  : CXNU1893568
+  docpp origin  : docpp-OFF retry
+  yolo box      : (23,20,603,578)  crop=(599, 577)
+
+sample13
+  source image  : IMG_20230101_154149_region_jpg.rf.c72ea8b6f91f112c0d60336f0c55cb9a.jpg
+  box_idx       : 0 of 1
+  claimed code  : CXXU1927420
+  docpp origin  : docpp-OFF retry
+  yolo box      : (19,63,621,589)  crop=(622, 545)
+
+sample14
+  source image  : 215637110766982368_0150_jpg.rf.412e579f97f42576fe6ea841837eaa26.jpg
+  box_idx       : 0 of 2
+  claimed code  : EGHU3769603
+  docpp origin  : docpp-OFF retry
+  yolo box      : (178,327,446,377)  crop=(287, 70)
+
+sample15
+  source image  : IMG_20230101_153756_region_jpg.rf.8650e614a5a6e49d8e8e9d49ad3b55a6.jpg
+  box_idx       : 0 of 1
+  claimed code  : CXNU1818498
+  docpp origin  : docpp-OFF retry
+  yolo box      : (11,82,610,536)  crop=(619, 474)

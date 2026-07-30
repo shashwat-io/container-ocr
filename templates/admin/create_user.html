@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User - Container Scanning System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-secondary { background: #6c757d; color: white; text-decoration: none; display: inline-block; }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .flash-messages { margin-bottom: 20px; }
+        .flash { padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+        .flash.success { background: #d4edda; color: #155724; }
+        .flash.error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Create New User</h1>
+            <p><a href="/admin/users" class="btn btn-secondary">Back to User List</a></p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/admin/users/create">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="form-group">
+                <label class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" required minlength="3">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required minlength="8">
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="is_admin" id="is_admin">
+                <label for="is_admin"><strong>Admin Privileges</strong></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create User</button>
+        </form>
+    </div>
+</body>
+</html>

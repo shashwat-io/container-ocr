@@ -1,0 +1,27 @@
+Targeted rows to process: 131
+/home/shashwatkumar/Testing/container_ocr_test/scratch_targeted_benchmark.py:35: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/scratch_targeted_benchmark.py:35: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+[20/131] 182s elapsed | avg 9.1s/img | est. remaining 1010s
+[40/131] 370s elapsed | avg 9.3s/img | est. remaining 842s
+[60/131] 541s elapsed | avg 9.0s/img | est. remaining 640s
+[80/131] 752s elapsed | avg 9.4s/img | est. remaining 480s
+[100/131] 937s elapsed | avg 9.4s/img | est. remaining 290s
+[120/131] 1122s elapsed | avg 9.3s/img | est. remaining 103s
+[131/131] 1200s elapsed | avg 9.2s/img | est. remaining 0s
+
+Done. Total time: 1200s. box_drift=0. Written to scratch_targeted_benchmark_results.csv
+TARGETED_BENCHMARK_COMPLETE

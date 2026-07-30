@@ -1,0 +1,58 @@
+Loading TrOCR from checkpoint: /home/shashwatkumar/Downloads/trocr_checkpoint_thin
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:  65%|██████▍   | 310/480 [00:00<00:00, 3092.47it/s]Loading weights: 100%|██████████| 480/480 [00:00<00:00, 3002.02it/s]
+TrOCR loaded on device=cpu
+Found 786 images (model=models/best_resplit.pt, test_dir=/home/shashwatkumar/Testing/container_ocr_test/container.v2i.yolov11.resplit/test/images, sample_file=)
+[CHECKPOINT 25/786] 106s elapsed | avg 4.2s/img | pass so far: 8 | fail so far: 20 | tiers: Tier1-exact:4, Tier1b-recovery:1, Tier3-fallback-novalid:3 | checkpoint CSV written (28 rows)
+[CHECKPOINT 50/786] 200s elapsed | avg 4.0s/img | pass so far: 18 | fail so far: 36 | tiers: Tier1-exact:5, Tier1b-recovery:5, Tier3-fallback-novalid:8 | checkpoint CSV written (54 rows)
+[CHECKPOINT 75/786] 333s elapsed | avg 4.4s/img | pass so far: 41 | fail so far: 38 | tiers: Tier1-exact:28, Tier1b-recovery:5, Tier3-fallback-novalid:8 | checkpoint CSV written (79 rows)
+[CHECKPOINT 100/786] 455s elapsed | avg 4.6s/img | pass so far: 64 | fail so far: 40 | tiers: Tier1-exact:51, Tier1b-recovery:5, Tier3-fallback-novalid:8 | checkpoint CSV written (104 rows)
+[CHECKPOINT 125/786] 592s elapsed | avg 4.7s/img | pass so far: 85 | fail so far: 44 | tiers: Tier1-exact:72, Tier1b-recovery:5, Tier3-fallback-novalid:8 | checkpoint CSV written (129 rows)
+[CHECKPOINT 150/786] 759s elapsed | avg 5.1s/img | pass so far: 101 | fail so far: 53 | tiers: Tier1-exact:87, Tier1b-recovery:6, Tier3-fallback-novalid:8 | checkpoint CSV written (154 rows)
+[CHECKPOINT 175/786] 907s elapsed | avg 5.2s/img | pass so far: 123 | fail so far: 56 | tiers: Tier1-exact:109, Tier1b-recovery:6, Tier3-fallback-novalid:8 | checkpoint CSV written (179 rows)
+[CHECKPOINT 200/786] 1036s elapsed | avg 5.2s/img | pass so far: 147 | fail so far: 57 | tiers: Tier1-exact:131, Tier1b-recovery:6, Tier3-fallback-novalid:10 | checkpoint CSV written (204 rows)
+[CHECKPOINT 225/786] 1135s elapsed | avg 5.0s/img | pass so far: 171 | fail so far: 58 | tiers: Tier1-exact:155, Tier1b-recovery:6, Tier3-fallback-novalid:10 | checkpoint CSV written (229 rows)
+[CHECKPOINT 250/786] 1266s elapsed | avg 5.1s/img | pass so far: 190 | fail so far: 64 | tiers: Tier1-exact:173, Tier1b-recovery:6, Tier3-fallback-novalid:11 | checkpoint CSV written (254 rows)
+[CHECKPOINT 275/786] 1383s elapsed | avg 5.0s/img | pass so far: 207 | fail so far: 72 | tiers: Tier1-exact:188, Tier1b-recovery:7, Tier3-fallback-novalid:12 | checkpoint CSV written (279 rows)
+[CHECKPOINT 300/786] 1521s elapsed | avg 5.1s/img | pass so far: 224 | fail so far: 80 | tiers: Tier1-exact:204, Tier1b-recovery:8, Tier3-fallback-novalid:12 | checkpoint CSV written (304 rows)
+[CHECKPOINT 325/786] 1658s elapsed | avg 5.1s/img | pass so far: 241 | fail so far: 88 | tiers: Tier1-exact:221, Tier1b-recovery:8, Tier3-fallback-novalid:12 | checkpoint CSV written (329 rows)
+[CHECKPOINT 350/786] 1813s elapsed | avg 5.2s/img | pass so far: 263 | fail so far: 91 | tiers: Tier1-exact:243, Tier1b-recovery:8, Tier3-fallback-novalid:12 | checkpoint CSV written (354 rows)
+[CHECKPOINT 375/786] 1960s elapsed | avg 5.2s/img | pass so far: 288 | fail so far: 91 | tiers: Tier1-exact:268, Tier1b-recovery:8, Tier3-fallback-novalid:12 | checkpoint CSV written (379 rows)
+[CHECKPOINT 400/786] 2108s elapsed | avg 5.3s/img | pass so far: 307 | fail so far: 98 | tiers: Tier1-exact:284, Tier1b-recovery:9, Tier3-fallback-novalid:14 | checkpoint CSV written (405 rows)
+[CHECKPOINT 425/786] 2224s elapsed | avg 5.2s/img | pass so far: 321 | fail so far: 113 | tiers: Tier1-exact:295, Tier1b-recovery:12, Tier3-fallback-novalid:14 | checkpoint CSV written (434 rows)
+[CHECKPOINT 450/786] 2336s elapsed | avg 5.2s/img | pass so far: 339 | fail so far: 120 | tiers: Tier1-exact:312, Tier1b-recovery:12, Tier3-fallback-novalid:15 | checkpoint CSV written (459 rows)
+[CHECKPOINT 475/786] 2464s elapsed | avg 5.2s/img | pass so far: 364 | fail so far: 124 | tiers: Tier1-exact:327, Tier1b-recovery:21, Tier3-fallback-novalid:16 | checkpoint CSV written (488 rows)
+[CHECKPOINT 500/786] 2568s elapsed | avg 5.1s/img | pass so far: 388 | fail so far: 128 | tiers: Tier1-exact:351, Tier1b-recovery:21, Tier3-fallback-novalid:16 | checkpoint CSV written (516 rows)
+[CHECKPOINT 525/786] 2686s elapsed | avg 5.1s/img | pass so far: 407 | fail so far: 134 | tiers: Tier1-exact:367, Tier1b-recovery:21, Tier3-fallback-novalid:19 | checkpoint CSV written (541 rows)
+[CHECKPOINT 550/786] 2786s elapsed | avg 5.1s/img | pass so far: 424 | fail so far: 143 | tiers: Tier1-exact:378, Tier1b-recovery:24, Tier3-fallback-novalid:22 | checkpoint CSV written (567 rows)
+[CHECKPOINT 575/786] 2895s elapsed | avg 5.0s/img | pass so far: 444 | fail so far: 149 | tiers: Tier1-exact:397, Tier1b-recovery:25, Tier3-fallback-novalid:22 | checkpoint CSV written (593 rows)
+[CHECKPOINT 600/786] 3008s elapsed | avg 5.0s/img | pass so far: 462 | fail so far: 157 | tiers: Tier1-exact:407, Tier1b-recovery:29, Tier3-fallback-novalid:26 | checkpoint CSV written (619 rows)
+[CHECKPOINT 625/786] 3120s elapsed | avg 5.0s/img | pass so far: 475 | fail so far: 169 | tiers: Tier1-exact:417, Tier1b-recovery:31, Tier3-fallback-novalid:27 | checkpoint CSV written (644 rows)
+[CHECKPOINT 650/786] 3280s elapsed | avg 5.0s/img | pass so far: 496 | fail so far: 180 | tiers: Tier1-exact:427, Tier1b-recovery:38, Tier3-fallback-novalid:31 | checkpoint CSV written (676 rows)
+[CHECKPOINT 675/786] 3397s elapsed | avg 5.0s/img | pass so far: 506 | fail so far: 195 | tiers: Tier1-exact:434, Tier1b-recovery:41, Tier3-fallback-novalid:31 | checkpoint CSV written (701 rows)
+[CHECKPOINT 700/786] 3509s elapsed | avg 5.0s/img | pass so far: 515 | fail so far: 211 | tiers: Tier1-exact:439, Tier1b-recovery:44, Tier3-fallback-novalid:32 | checkpoint CSV written (726 rows)
+[CHECKPOINT 725/786] 3636s elapsed | avg 5.0s/img | pass so far: 528 | fail so far: 224 | tiers: Tier1-exact:446, Tier1b-recovery:49, Tier3-fallback-novalid:33 | checkpoint CSV written (752 rows)
+[CHECKPOINT 750/786] 3788s elapsed | avg 5.1s/img | pass so far: 542 | fail so far: 241 | tiers: Tier1-exact:448, Tier1b-recovery:54, Tier3-fallback-novalid:40 | checkpoint CSV written (783 rows)
+[CHECKPOINT 775/786] 3944s elapsed | avg 5.1s/img | pass so far: 555 | fail so far: 258 | tiers: Tier1-exact:457, Tier1b-recovery:55, Tier3-fallback-novalid:43 | checkpoint CSV written (813 rows)
+[CHECKPOINT 786/786] 4045s elapsed | avg 5.1s/img | pass so far: 568 | fail so far: 273 | tiers: Tier1-exact:457, Tier1b-recovery:62, Tier3-fallback-novalid:49 | checkpoint CSV written (841 rows)
+
+=== BENCHMARK RESULTS (TrOCR FINE-TUNED CASCADE, QUICK SAMPLE) ===
+YOLO model:       models/best_resplit.pt
+TrOCR checkpoint: /home/shashwatkumar/Downloads/trocr_checkpoint_thin
+Sample file:      
+Total images:     786
+Total rows:       841 (rows > images when any image has >1 YOLO box)
+YOLO detected:    783 (99.6% of images)
+OCR read code:    838 (107.0% of detected)
+ISO 6346 valid (rows/rows, per CLAUDE.md convention): 568/841 = 67.5%
+ISO 6346 valid (valid/images, NOT the convention -- for reference only): 568/786 = 72.3%
+No detection:     3 (0.4%)
+
+--- Tier breakdown (passing rows only) ---
+  Tier1-exact: 457
+  Tier1b-recovery: 62
+  Tier3-fallback-novalid: 49
+
+Total time:       4045s | Avg per image: 5.1s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/benchmark_results_trocr_cascade_FULL_thin_gated_20260729.csv
+RUN COMPLETED UNINTERRUPTED

@@ -1,0 +1,113 @@
+incomplete (target gains): 153
+currently-valid sample (regression test): 100
+
+=== PART 1: incomplete rows with docpp OFF ===
+/home/shashwatkumar/Testing/container_ocr_test/scratch_docpp_eval.py:72: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/scratch_docpp_eval.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  crop_np = np.array(crop_image)
+/home/shashwatkumar/Testing/container_ocr_test/scratch_docpp_eval.py:72: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img = np.array(Image.open(os.path.join(TEST_DIR, fname)).convert('RGB'))
+  [25/153] gains so far: 9  (87s)
+  [50/153] gains so far: 11  (176s)
+  [75/153] gains so far: 16  (321s)
+  [100/153] gains so far: 20  (425s)
+  [125/153] gains so far: 24  (520s)
+  [150/153] gains so far: 30  (613s)
+
+=== PART 2: currently-valid sample, docpp ON (control) vs OFF ===
+  [25/100] still_pass=21 regress=4 ctrl_mismatch=0 (885s)
+  [50/100] still_pass=39 regress=11 ctrl_mismatch=0 (1143s)
+  [75/100] still_pass=57 regress=18 ctrl_mismatch=0 (1399s)
+  [100/100] still_pass=79 regress=21 ctrl_mismatch=0 (1665s)
+
+======================================================================
+RESULTS — docpp OFF (lsl default, all other logic unchanged)
+======================================================================
+
+PART 1 GAINS — previously-incomplete now VALID: 30 / 153
+  +  1480134690284023198_0280_jpg.rf.7bd6af5d2e8d48 [box 0] -> 'CBHU8805106'  (Valid (check-digit recovered))
+  +  1526628520153976338_0070_jpg.rf.7486e1aebc7abb [box 0] -> 'UWLU4113920'  (Valid (check-digit recovered))
+  +  1526628520153976338_0090_jpg.rf.b7a3bc3b78bb68 [box 0] -> 'UWLU4113920'  (Valid (check-digit recovered))
+  +  215637110766982368_0000_jpg.rf.45612410d2d5291 [box 0] -> 'EGHU3769603'  (Valid)
+  +  2305812729909048674_0230_jpg.rf.f1b4507c8febb9 [box 1] -> 'TCLU8765210'  (Valid (check-digit recovered))
+  +  3864162003561327490_0050_jpg.rf.fcb6531afd25fd [box 0] -> 'EGHU3769033'  (Valid (check-digit recovered))
+  +  5035143762191363788_0090_jpg.rf.a2bc898628ef1b [box 0] -> 'RFCU5051496'  (Valid)
+  +  7379698119094862366_0270_jpg.rf.88d430653a7282 [box 0] -> 'TCNU7574367'  (Valid)
+  +  8668723214655100260_0210_jpg.rf.3ec86bd33f1cba [box 0] -> 'UWLU4112688'  (Valid (check-digit recovered))
+  +  8668723214655100260_0280_jpg.rf.69fb9188ce27c5 [box 0] -> 'UWLU4112688'  (Valid)
+  +  Event20231020000956005-Avi_5505_jpg.rf.d085776 [box 0] -> 'CAIU6253013'  (Valid (character confusion corrected: 1→I at position 3))
+  +  Event20231020001456005-Avi_7745_jpg.rf.abf6cba [box 0] -> 'CMAU1284740'  (Valid)
+  +  Event20231020001956005-Avi_3260_jpg.rf.6d3babe [box 0] -> 'CMAU1284740'  (Valid)
+  +  Event20231020001956005-Avi_3275_jpg.rf.a35ae89 [box 0] -> 'CMAU1284740'  (Valid)
+  +  Event20231020002956004-Avi_2920_jpg.rf.b366a0d [box 0] -> 'TLLU3254828'  (Valid)
+  +  Event20231020003455004-Avi_7955_jpg.rf.a807cda [box 0] -> 'BMOU6513487'  (Valid (character confusion corrected: 0→O at position 3))
+  +  IMG_0414_region_JPG_jpg.rf.80240fe97c3b4be41cd [box 0] -> 'MRKU8476867'  (Valid)
+  +  IMG_0425_region_JPG_jpg.rf.f070d25dc1c724a5c60 [box 0] -> 'CAXU7037392'  (Valid)
+  +  IMG_0460_region_JPG_jpg.rf.4241eb7de6b650afcdf [box 0] -> 'TCNU2537571'  (Valid (check-digit recovered))
+  +  IMG_0501_ce_png_jpg.rf.c9b3f0bad3c8ef1bde48b3d [box 0] -> 'CXNU1523199'  (Valid (check-digit recovered))
+  +  IMG_0505_ce_png_jpg.rf.aa61a4b0eb5cfbb22776b56 [box 0] -> 'CXNU1527888'  (Valid (check-digit recovered))
+  +  IMG_0547_ce_png_jpg.rf.59f46edd9f317636b8ec2a2 [box 0] -> 'GXND1880291'  (Valid (check-digit recovered))
+  +  IMG_20221218_145335_ce_png_jpg.rf.f5b0b74e1ba6 [box 0] -> 'UXNU1520664'  (Valid (check-digit recovered))
+  +  IMG_20221218_145551_region_jpg.rf.8dbbdb2a0bc9 [box 0] -> 'UXNU1846096'  (Valid (check-digit recovered))
+  +  IMG_20221218_150830_region_jpg.rf.5594cdb67382 [box 0] -> 'CXHU1152209'  (Valid (check-digit recovered))
+  +  IMG_20221218_151329_region_jpg.rf.c7fe26de01b1 [box 0] -> 'CXNU1522947'  (Valid (check-digit recovered))
+  +  IMG_20230101_153756_region_jpg.rf.8650e614a5a6 [box 0] -> 'CXNU1818498'  (Valid (check-digit recovered))
+  +  IMG_20230101_153913_region_jpg.rf.8490b3f3e9c8 [box 0] -> 'CXNU1810970'  (Valid (check-digit recovered))
+  +  IMG_20230101_154144_region_jpg.rf.d00f2a9d8441 [box 0] -> 'CXNU1893568'  (Valid (check-digit recovered))
+  +  IMG_20230101_154149_region_jpg.rf.c72ea8b6f91f [box 0] -> 'CXXU1927420'  (Valid (check-digit recovered))
+
+PART 2 REGRESSIONS (control ON valid, OFF invalid): 21
+  -  2305812729909048674_0370_jpg.rf.340cadcdd5b566 [box 1] : 'TCLU8765210' -> '4561'  (Text too short)
+  -  215637110766982368_0010_jpg.rf.daafd5d9d35c469 [box 0] : 'EGHU3769603' -> 'E96031NA'  (Text too short)
+  -  Event20231020095456004-Avi_8170_jpg.rf.94f6da4 [box 0] : 'SKHU6302207' -> ''  (Text too short)
+  -  Event20231020095956005-Avi_1930_jpg.rf.7bb8c24 [box 0] : 'SKHU6302207' -> '4561630220S'  (First 4 characters must be letters)
+  -  Event20231020001956005-Avi_3355_jpg.rf.c381b3e [box 0] : 'CMAU1284740' -> '0ALA821VM2'  (Text too short)
+  -  Event20231020101456004-Avi_4245_jpg.rf.bbd8d04 [box 0] : 'BMOU6850240' -> '451888BM006'  (First 4 characters must be letters)
+  -  z4945347794283_9b4421aa678f11142db6f746c884f53 [box 0] : 'UWLU4113107' -> '45G129MSUPE'  (First 4 characters must be letters)
+  -  Event20231020095456004-Avi_8160_jpg.rf.8e5ebc9 [box 0] : 'SKHU6302207' -> 'E'  (Text too short)
+  -  IMG_0954_region_JPG_jpg.rf.ef0a5eba49552267a23 [box 0] : 'TRIO2353990' -> '2353993TRIU'  (First 4 characters must be letters)
+  -  IMG_0405_ce_png_jpg.rf.11c1b32a4f31e69c8214366 [box 0] : 'BENU1206852' -> ''  (No text detected)
+  -  IMG_0965_ce_png_jpg.rf.1c9714141db7444bcff02f2 [box 0] : 'TRLU6886378' -> ''  (No text detected)
+  -  z4945347892644_16e3048895620e99011777728bf63cd [box 1] : 'BSIU9503180' -> '45G18S1U950'  (First 4 characters must be letters)
+  -  Event20231020095956005-Avi_1945_jpg.rf.044e2ef [box 0] : 'SKHU6302207' -> 'US45G1'  (Text too short)
+  -  Event20231020001456005-Avi_4690_jpg.rf.095458f [box 0] : 'SKLU1671730' -> '2121671730O'  (First 4 characters must be letters)
+  -  6427132303892274193_0250_jpg.rf.c648509f05b648 [box 0] : 'TIHU5115220' -> '45G1T1HU511'  (First 4 characters must be letters)
+  -  Event20231020100456004-Avi_0365_jpg.rf.3842e66 [box 0] : 'BMOU6494577' -> '04551BM0U64'  (First 4 characters must be letters)
+  -  Event20231020094956005-Avi_6525_jpg.rf.9e68e68 [box 0] : 'SKLU1613225' -> '161322522OU'  (First 4 characters must be letters)
+  -  IMG_0419_ce_png_jpg.rf.fa6f83e83a2e03cf6b4abf4 [box 0] : 'FSCU3233140' -> '206116919A'  (Text too short)
+  -  IMG_20221218_145222_region_jpg.rf.510fbfd520b9 [box 0] : 'CXNU1821402' -> 'MQUN9662ZOL'  (Characters 5-10 must be digits)
+  -  IMG_0112_ce_png_jpg.rf.630a49045f33d71dca89a7b [box 0] : 'DLJU2085603' -> '82'  (Text too short)
+  -  Event20231020101456004-Avi_2180_jpg.rf.8acca04 [box 0] : 'BMOU6850240' -> '1BM0U685024'  (First 4 characters must be letters)
+
+PART 2 still-pass (ON valid & OFF valid): 79
+PART 2 valid->valid but CODE changed: 12
+  ~  IMG_0521_region_JPG_jpg.rf.80deb225a882db35606 [box 0] : 'BLJU4250109' -> 'BLUU4250102'
+  ~  3864162003561327490_0050_jpg.rf.71d89c2d5046fa [box 0] : 'EGHU3769603' -> 'EGHU3696030'
+  ~  IMG_0416_ce_png_jpg.rf.048e918d44dddd2b651f73f [box 0] : 'PONU0464178' -> 'PONU0464774'
+  ~  IMG_20221218_150136_ce_png_jpg.rf.a1fecaffdd4d [box 0] : 'UXNU1803216' -> 'CXNU1803219'
+  ~  IMG_20221218_145857_region_jpg.rf.8271cbb140b9 [box 0] : 'LXNU1127319' -> 'CXNU1127310'
+  ~  2305812729909048674_0230_jpg.rf.a6d41980b8b67e [box 1] : 'TULU8765215' -> 'TCLU8765210'
+  ~  4654256381207060402_0090_jpg.rf.a7a3f8caab5160 [box 0] : 'CAMS6848397' -> 'SEKU6384890'
+  ~  IMG_20221218_151347_region_jpg.rf.43fac48484e0 [box 0] : 'UXZD1846560' -> 'CXNU1846566'
+  ~  215637110766982368_0310_jpg.rf.b32f61c1624da3b [box 0] : 'EGHU3769223' -> 'EGHU3769603'
+  ~  IMG_20230101_154622_region_jpg.rf.a251801c75f2 [box 0] : 'JGGN0953812' -> 'CXNU1835601'
+  ~  IMG_20230101_155025_region_jpg.rf.1f3657ce9420 [box 0] : 'LXNU1957445' -> 'CXNU1957446'
+  ~  Event20231020095956005-Avi_4460_jpg.rf.87aec4c [box 0] : 'WMLU8207568' -> 'KWLU8207565'
+
+PART 2 control mismatches (ON didn't reproduce CSV-valid; excluded as noise): 0
+
+Total elapsed: 1665s
+DONE

@@ -1,0 +1,730 @@
+[
+  {
+    "filename": "596_jpg_ce_png_jpg.rf.9f03bbcb4cf21d92ad4d6f1e908ec1e8.jpg",
+    "box_index": 0,
+    "container_code": "BMOU1535544",
+    "ocr_raw": "BMOU153554(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/596_jpg_ce_png_jpg_rf_9f03bbcb4cf21d92ad4d6f1e908ec1e8_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCF1595_JPG_ce_png_jpg.rf.9df6c473539954e81bc22c907e26b49e.jpg",
+    "box_index": 0,
+    "container_code": "NYKU5308802",
+    "ocr_raw": "NYKU530880(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCF1595_JPG_ce_png_jpg_rf_9df6c473539954e81bc22c907e26b49e_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCF2442_JPG_ce_png_jpg.rf.d9d5f6dfd2fbd543801ad743a8974f5f.jpg",
+    "box_index": 0,
+    "container_code": "NSSU8106997",
+    "ocr_raw": "NSSU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCF2442_JPG_ce_png_jpg_rf_d9d5f6dfd2fbd543801ad743a8974f5f_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCF9244_JPG_ce_png_jpg.rf.0ad80d8df90f922a0bdf6dd711834e49.jpg",
+    "box_index": 0,
+    "container_code": "TSEU8889954",
+    "ocr_raw": "TSEU888995(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCF9244_JPG_ce_png_jpg_rf_0ad80d8df90f922a0bdf6dd711834e49_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCN4150_JPG_ce_png_jpg.rf.7adc26343c9cfe4b6a933553c27b89c4.jpg",
+    "box_index": 0,
+    "container_code": "TSSU8911918",
+    "ocr_raw": "TSSU891191(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCN4150_JPG_ce_png_jpg_rf_7adc26343c9cfe4b6a933553c27b89c4_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCN7441_JPG_ce_png_jpg.rf.44013fc7828c79001c903fd67b68de8e.jpg",
+    "box_index": 0,
+    "container_code": "DASU6106991",
+    "ocr_raw": "DASU610699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCN7441_JPG_ce_png_jpg_rf_44013fc7828c79001c903fd67b68de8e_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCN9943_JPG_ce_png_jpg.rf.04badeda22138dd241f0ea176ae2b3d2.jpg",
+    "box_index": 0,
+    "container_code": "TCNU6710026",
+    "ocr_raw": "TCNU671002(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCN9943_JPG_ce_png_jpg_rf_04badeda22138dd241f0ea176ae2b3d2_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "DSCN9943_JPG_ce_png_jpg.rf.f5fc08f23ec7ba8151ebb30c5e2fd7a9.jpg",
+    "box_index": 0,
+    "container_code": "TCNU6710200",
+    "ocr_raw": "TCNU6710200(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/DSCN9943_JPG_ce_png_jpg_rf_f5fc08f23ec7ba8151ebb30c5e2fd7a9_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "Event20231020070956004-Avi_4890_jpg.rf.8f42cb41c269e143573742e1e7d9bac5.jpg",
+    "box_index": 0,
+    "container_code": "SEAU8881561",
+    "ocr_raw": "SEAU8881561(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/Event20231020070956004-Avi_4890_jpg_rf_8f42cb41c269e14357374_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "Event20231020070956004-Avi_4925_jpg.rf.b54a21662f8c6c612e81a0647c4b20dd.jpg",
+    "box_index": 0,
+    "container_code": "SEGU8911574",
+    "ocr_raw": "SEGU891157(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/Event20231020070956004-Avi_4925_jpg_rf_b54a21662f8c6c612e81a_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "Event20231020095456004-Avi_4060_jpg.rf.1cfd3d7397b6677d8202e547c96e3685.jpg",
+    "box_index": 0,
+    "container_code": "BSCU8201521",
+    "ocr_raw": "BSCU8201521(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/Event20231020095456004-Avi_4060_jpg_rf_1cfd3d7397b6677d8202e_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "Event20231020095956004-Avi_1865_jpg.rf.7b9b961353d6b31c342d223731e2bdde.jpg",
+    "box_index": 0,
+    "container_code": "ZZLU0207596",
+    "ocr_raw": "ZZLU020759(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/Event20231020095956004-Avi_1865_jpg_rf_7b9b961353d6b31c342d2_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "Event20231020100456005-Avi_3965_jpg.rf.632625046b01e7ea5311c4298ee5cab3.jpg",
+    "box_index": 0,
+    "container_code": "BMOU8359431",
+    "ocr_raw": "BMOU83594317(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 3 (merged fallback, no valid)"
+    ],
+    "rotation_used": "-90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/Event20231020100456005-Avi_3965_jpg_rf_632625046b01e7ea5311c_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG120_jpg_ce_png_jpg.rf.09da5e66974beff9bbbf5d93da53dd14.jpg",
+    "box_index": 0,
+    "container_code": "ZIMU1909410",
+    "ocr_raw": "ZIMU1909410(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG120_jpg_ce_png_jpg_rf_09da5e66974beff9bbbf5d93da53dd14_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG120_jpg_ce_png_jpg.rf.09da5e66974beff9bbbf5d93da53dd14.jpg",
+    "box_index": 1,
+    "container_code": "CAKU8106997",
+    "ocr_raw": "CAKU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG120_jpg_ce_png_jpg_rf_09da5e66974beff9bbbf5d93da53dd14_box1.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0420_ce_png_jpg.rf.5b385bb4ab720eced35a30631608c2c1.jpg",
+    "box_index": 0,
+    "container_code": "BMOU7202920",
+    "ocr_raw": "BMOU7202920(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0420_ce_png_jpg_rf_5b385bb4ab720eced35a30631608c2c1_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0448_ce_png_jpg.rf.7738dc365112af5e600e53a7065f1181.jpg",
+    "box_index": 1,
+    "container_code": "TOCU3766377",
+    "ocr_raw": "TOCU3766377(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0448_ce_png_jpg_rf_7738dc365112af5e600e53a7065f1181_box1.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0545_region_JPG_jpg.rf.ac4f708d6ea5ad5ba9c6c9553fc7e5a7.jpg",
+    "box_index": 0,
+    "container_code": "TEXU5881521",
+    "ocr_raw": "TEXU5881521(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0545_region_JPG_jpg_rf_ac4f708d6ea5ad5ba9c6c9553fc7e5a7_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0612_ce_png_jpg.rf.ade3987cbe1b97fc43e19c1ff8a675da.jpg",
+    "box_index": 0,
+    "container_code": "CSLU9666958",
+    "ocr_raw": "CSLU9666958(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0612_ce_png_jpg_rf_ade3987cbe1b97fc43e19c1ff8a675da_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0901_ce_png_jpg.rf.fad55b99429810a80000248d5cbd4a1f.jpg",
+    "box_index": 0,
+    "container_code": "SEGU3770200",
+    "ocr_raw": "SEGU3770200(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0901_ce_png_jpg_rf_fad55b99429810a80000248d5cbd4a1f_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_0960_region_JPG_jpg.rf.db49285e93ebf8a15860ab4c8b339110.jpg",
+    "box_index": 0,
+    "container_code": "ZCSU3272002",
+    "ocr_raw": "ZCSU32720021(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 3 (merged fallback, no valid)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_0960_region_JPG_jpg_rf_db49285e93ebf8a15860ab4c8b339110_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20211114-19541803_jpg_ce_png_jpg.rf.13d892a8dd0099c86d4a78d19f1fe44a.jpg",
+    "box_index": 1,
+    "container_code": "KWLU7106992",
+    "ocr_raw": "KWLU710699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20211114-19541803_jpg_ce_png_jpg_rf_13d892a8dd0099c86d4a_box1.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20211114-19541803_jpg_ce_png_jpg.rf.3cab99ed2e01cc4c39f415b6e02bc76c.jpg",
+    "box_index": 0,
+    "container_code": "GCCU7639306",
+    "ocr_raw": "GCCU763930(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20211114-19541803_jpg_ce_png_jpg_rf_3cab99ed2e01cc4c39f4_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20211114-19541803_jpg_ce_png_jpg.rf.cc3bcac930755daca4b7379fdbeb8a6e.jpg",
+    "box_index": 0,
+    "container_code": "GCCU3769301",
+    "ocr_raw": "GCCU376930(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20211114-19541803_jpg_ce_png_jpg_rf_cc3bcac930755daca4b7_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20221218_145857_region_jpg.rf.ad361bf17cde7d44c90e787e8ae3002e.jpg",
+    "box_index": 0,
+    "container_code": "ZMLU2881020",
+    "ocr_raw": "ZMLU2881020(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20221218_145857_region_jpg_rf_ad361bf17cde7d44c90e787e8a_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20221218_150136_region_jpg.rf.0768467ad3e36823db03aa90b31c4af5.jpg",
+    "box_index": 0,
+    "container_code": "CXNU1806270",
+    "ocr_raw": "CXNU180627(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20221218_150136_region_jpg_rf_0768467ad3e36823db03aa90b3_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20221218_150136_region_jpg.rf.b9164d8f4e2f8a22354ceb412b39b505.jpg",
+    "box_index": 0,
+    "container_code": "CXNU1806270",
+    "ocr_raw": "CXNU180627(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20221218_150136_region_jpg_rf_b9164d8f4e2f8a22354ceb412b_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20221218_150136_region_jpg.rf.cd7f9328a9db8776b600a83dd99ae2d0.jpg",
+    "box_index": 0,
+    "container_code": "CXNU1806270",
+    "ocr_raw": "CXNU180627(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20221218_150136_region_jpg_rf_cd7f9328a9db8776b600a83dd9_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20230101_153826_region_jpg.rf.28ba47346049ce3ac257fa98a457d5e8.jpg",
+    "box_index": 0,
+    "container_code": "BMOU8207207",
+    "ocr_raw": "BMOU8207207(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20230101_153826_region_jpg_rf_28ba47346049ce3ac257fa98a4_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20230101_154108_region_jpg.rf.e1222da103c61db5e237cbd47ac094a0.jpg",
+    "box_index": 0,
+    "container_code": "BSCU8841750",
+    "ocr_raw": "BSCU8841750(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20230101_154108_region_jpg_rf_e1222da103c61db5e237cbd47a_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20230101_154211_region_jpg.rf.16f1af96c22ab9d74b16f4d494d1217b.jpg",
+    "box_index": 0,
+    "container_code": "CSCU8841520",
+    "ocr_raw": "CSCU8841520(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20230101_154211_region_jpg_rf_16f1af96c22ab9d74b16f4d494_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20230101_154237_region_jpg.rf.57f662ed42d165ccda06a5dd00b8b05b.jpg",
+    "box_index": 0,
+    "container_code": "FOCU8910924",
+    "ocr_raw": "FOCU891092(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20230101_154237_region_jpg_rf_57f662ed42d165ccda06a5dd00_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "IMG_20230101_154237_region_jpg.rf.703ef8500adb969bcb57878aa50377cd.jpg",
+    "box_index": 0,
+    "container_code": "FOCU8910924",
+    "ocr_raw": "FOCU891092(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/IMG_20230101_154237_region_jpg_rf_703ef8500adb969bcb57878aa5_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4944210580740_f9b002a9b838cbf53f8ad1f2f1ed5164_jpg.rf.809c35546d8edff24e6e984d4ac4aa85.jpg",
+    "box_index": 0,
+    "container_code": "TGBU8106993",
+    "ocr_raw": "TGBU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4944210580740_f9b002a9b838cbf53f8ad1f2f1ed5164_jpg_rf_809c3_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4944210696040_9b9a08ff91d574e1a136ed57f30341d7_jpg.rf.0b1a868a89dd112422b86a0045d9257e.jpg",
+    "box_index": 0,
+    "container_code": "TCLU8662927",
+    "ocr_raw": "TCLU86629278(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 3 (merged fallback, no valid)"
+    ],
+    "rotation_used": "-90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4944210696040_9b9a08ff91d574e1a136ed57f30341d7_jpg_rf_0b1a8_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319730803_9feb29d8b6e5caf3d8cfee974649ef31_jpg.rf.b7351dd70824f0ac690bf2c752f607bd.jpg",
+    "box_index": 0,
+    "container_code": "VOCU8106996",
+    "ocr_raw": "VOCU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319730803_9feb29d8b6e5caf3d8cfee974649ef31_jpg_rf_b7351_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319748080_e5c45be0bc3b46e85d18f1790cfc852b_jpg.rf.69cc94c027314bb227a2e97d1ecb69c9.jpg",
+    "box_index": 0,
+    "container_code": "TSSU8200150",
+    "ocr_raw": "TSSU8200150(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319748080_e5c45be0bc3b46e85d18f1790cfc852b_jpg_rf_69cc9_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319748080_e5c45be0bc3b46e85d18f1790cfc852b_jpg.rf.9141fc40e79a3b5ab4d02d76abfb11a1.jpg",
+    "box_index": 0,
+    "container_code": "TSLU8200160",
+    "ocr_raw": "TSLU8200160(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319748080_e5c45be0bc3b46e85d18f1790cfc852b_jpg_rf_9141f_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319780741_41b33dc7715908703fda52e1dc22a145_jpg.rf.199876c090fffd2694223be9bce04047.jpg",
+    "box_index": 0,
+    "container_code": "VSBU8919916",
+    "ocr_raw": "VSBU891991(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319780741_41b33dc7715908703fda52e1dc22a145_jpg_rf_19987_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319780741_41b33dc7715908703fda52e1dc22a145_jpg.rf.aea564d56873217ab9f55bf21c5393ec.jpg",
+    "box_index": 0,
+    "container_code": "VSEU8915568",
+    "ocr_raw": "VSEU891556(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319780741_41b33dc7715908703fda52e1dc22a145_jpg_rf_aea56_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319873738_5a9c626660458c03b0ea62cd070f37bc_jpg.rf.45e34b237694defe5c84ec5f4d22b4a0.jpg",
+    "box_index": 0,
+    "container_code": "MSAU8915637",
+    "ocr_raw": "MSAU891563(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319873738_5a9c626660458c03b0ea62cd070f37bc_jpg_rf_45e34_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319901142_b2d3fea23be6c8f636f74dfbbe59d8b1_jpg.rf.b1035a8b8b8593f881a06a186260e461.jpg",
+    "box_index": 0,
+    "container_code": "TCLU8922921",
+    "ocr_raw": "TCLU8922921(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319901142_b2d3fea23be6c8f636f74dfbbe59d8b1_jpg_rf_b1035_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945319944477_fea9e060b902a0658d5c1f7278fd192c_jpg.rf.a85fd1cc398cdf665001f51250f419ea.jpg",
+    "box_index": 0,
+    "container_code": "YSEU8911591",
+    "ocr_raw": "YSEU891159(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945319944477_fea9e060b902a0658d5c1f7278fd192c_jpg_rf_a85fd_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945347794283_9b4421aa678f11142db6f746c884f536_jpg.rf.0332ff270129d4f710a4419147aaa288.jpg",
+    "box_index": 0,
+    "container_code": "VSCU8158997",
+    "ocr_raw": "VSCU815899(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945347794283_9b4421aa678f11142db6f746c884f536_jpg_rf_0332f_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945347884698_67ee882b4326f4bec8cda84715f6702a_jpg.rf.a20eeb4bd13a1a351f5e4ecda95eb211.jpg",
+    "box_index": 2,
+    "container_code": "NYLU8106119",
+    "ocr_raw": "NYLU810611(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945347884698_67ee882b4326f4bec8cda84715f6702a_jpg_rf_a20ee_box2.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945348013161_790e45605dfe8fd4cdd4ea26becc08ab_jpg.rf.2ccad68aea5589b7b806965927c42678.jpg",
+    "box_index": 0,
+    "container_code": "TGBU8910595",
+    "ocr_raw": "TGBU891059(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945348013161_790e45605dfe8fd4cdd4ea26becc08ab_jpg_rf_2ccad_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435111033_4fb017bd02eba6ac4824364b6492b5e2_jpg.rf.66c34330721d3b6b799963025313eb30.jpg",
+    "box_index": 0,
+    "container_code": "VASU8106999",
+    "ocr_raw": "VASU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435111033_4fb017bd02eba6ac4824364b6492b5e2_jpg_rf_66c34_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435128029_eb651d40c4fee0f6da4e90cce53a8e46_jpg.rf.4bfb1293c1bb1e0176b45583eba7d827.jpg",
+    "box_index": 1,
+    "container_code": "BMOU8201338",
+    "ocr_raw": "BMOU8201338(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1 (single-line exact)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435128029_eb651d40c4fee0f6da4e90cce53a8e46_jpg_rf_4bfb1_box1.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435145904_0bf0755ee6745e46332164d8e6ca0726_jpg.rf.16eee54174109751048e29509ffa41a4.jpg",
+    "box_index": 0,
+    "container_code": "CXNU8915205",
+    "ocr_raw": "CXNU891520(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435145904_0bf0755ee6745e46332164d8e6ca0726_jpg_rf_16eee_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg.rf.3168417fff880117077689d916c784d3.jpg",
+    "box_index": 0,
+    "container_code": "VSBU8106990",
+    "ocr_raw": "VSBU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg_rf_31684_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg.rf.62e82612f1aa7da2c17a82e5eb857c1b.jpg",
+    "box_index": 0,
+    "container_code": "VSBU8106990",
+    "ocr_raw": "VSBU810699(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg_rf_62e82_box0.png",
+    "reproduced_exactly": true
+  },
+  {
+    "filename": "z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg.rf.c7ee30970ba1b8d9dbcf552a024c6453.jpg",
+    "box_index": 0,
+    "container_code": "VBLU8911907",
+    "ocr_raw": "VBLU891190(1.00)",
+    "benchmark_tier_label": "Tier3-fallback-novalid",
+    "true_tier_chain": [
+      "Tier 1b (single-line check-digit recovery)"
+    ],
+    "rotation_used": "+90",
+    "n_rotation_calls": 2,
+    "crop_path": "scratchpad/tier3_crops/z4945435159594_4837531a7d5653350a32fd31cc42f787_jpg_rf_c7ee3_box0.png",
+    "reproduced_exactly": true
+  }
+]

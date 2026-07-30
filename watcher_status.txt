@@ -1,0 +1,7 @@
+[2026-07-28 11:14:17] watcher started (pid 9995), waiting on PID 7528
+[2026-07-28 12:53:18] PID 7528 exited; verifying completion
+[2026-07-28 12:53:28] CHECK A PASS: Total time:       6606s | Avg per image: 8.4s
+[2026-07-28 12:53:28] CHECK B PASS: 786 distinct images (>= 780), 841 rows
+[2026-07-28 12:53:28] LAUNCHED PaddleOCR full-786 cascade, pid 22116 -> paddle_cascade_FULL_20260728.log
+[2026-07-28 12:53:28]   output CSV: benchmark_results_paddle_cascade_FULL_20260728.csv
+[2026-07-28 12:53:28] watcher done

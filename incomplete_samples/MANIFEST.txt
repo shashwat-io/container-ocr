@@ -1,0 +1,58 @@
+Incomplete-read (<11 chars) invalid samples — full image + pipeline crop (padding=10), NO OCR run
+
+sample1
+  source image : 440_jpg_ce_png_jpg.rf.d04c7742f252285ed5c48ae6e2f80af2.jpg
+  box_idx      : 0 of 1
+  total chars  : 0
+  ocr_raw      : 
+  yolo box     : (261,139,577,534)  crop=(337, 414)
+
+sample2
+  source image : DSCF1517_JPG_ce_png_jpg.rf.1492622df113e539d26b0b5a5fbeb54c.jpg
+  box_idx      : 0 of 1
+  total chars  : 0
+  ocr_raw      : 器(0.96)
+  yolo box     : (146,118,544,492)  crop=(417, 395)
+
+sample3
+  source image : DSCF7552_JPG_ce_png_jpg.rf.71b162eef6284fbd3b9f59d2e5a34484.jpg
+  box_idx      : 0 of 1
+  total chars  : 0
+  ocr_raw      : 
+  yolo box     : (130,77,479,410)  crop=(370, 353)
+
+sample4
+  source image : DSCF9008_JPG_ce_png_jpg.rf.524df10c3b3daf8aa78b22773296215b.jpg
+  box_idx      : 0 of 1
+  total chars  : 0
+  ocr_raw      : 
+  yolo box     : (188,83,437,434)  crop=(269, 371)
+
+sample5
+  source image : IMG_0547_region_JPG_jpg.rf.de753ae9365323b01673579a0c688912.jpg
+  box_idx      : 0 of 1
+  total chars  : 6
+  ocr_raw      : X20-ONG(0.64)
+  yolo box     : (8,1,639,640)  crop=(640, 640)
+
+sample6
+  source image : IMG_20221218_145335_ce_png_jpg.rf.f5b0b74e1ba6d6391898ee2862b38eb2.jpg
+  box_idx      : 0 of 1
+  total chars  : 6
+  ocr_raw      : ONGCZX(0.78)
+  yolo box     : (202,125,517,455)  crop=(336, 349)
+
+sample7
+  source image : WhatsApp-Image-2022-11-23-at-10-34-37-AM-24-_ce_png_jpg.rf.6694012dc3d6588ee756c3329ce3456f.jpg
+  box_idx      : 0 of 1
+  total chars  : 6
+  ocr_raw      : S(0.84) | 64(1.00) | 15(1.00) | 9(0.52)
+  yolo box     : (96,204,455,389)  crop=(379, 204)
+
+sample8
+  source image : z4945348021293_0523dc9e74237af9ee198ef40c666322_jpg.rf.aaca12a6794bd666ecd421bc73cafe46.jpg
+  box_idx      : 1 of 3
+  total chars  : 6
+  ocr_raw      : TRITON(0.93)
+  yolo box     : (581,70,640,216)  crop=(70, 166)
+

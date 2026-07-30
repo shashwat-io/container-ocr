@@ -1,0 +1,59 @@
+# Direct/top-level dependencies only. Transitive dependencies (numpy, torch,
+# huggingface_hub, matplotlib, pandas, etc.) are intentionally left unpinned.
+#
+# This exact set, paired with constraints.txt, was verified end-to-end on the
+# GPU server's flask-app-venv (Python 3.11) on 22-07-2026: real pip install,
+# `import` check for every package, cv2+ultralytics loaded together, and a
+# full run.py boot + HTTP request test all passed. Install with:
+#
+#     pip install -r requirements.txt -c constraints.txt
+#
+# Do not install with just `-r requirements.txt` alone -- see constraints.txt
+# for why (it blocks opencv-python/opencv-python-headless from silently
+# reappearing alongside opencv-contrib-python).
+#
+# Intentional version changes from the previous pins in this file -- verified
+# during this deployment-prep session, not silent drift:
+#   - ultralytics: 8.2.3 -> 8.4.78 (old pin predated this session; 8.4.78 is
+#     what was actually dry-run installed, real-installed, and import-tested)
+#   - python-dotenv: 1.0.0 -> 1.2.2 (matches the version already running
+#     successfully on the local dev machine)
+#   - Flask-Bcrypt: newly added, was MISSING from this file entirely despite
+#     being a hard runtime dependency -- app/extensions.py imports it
+#     directly and app/__init__.py wires it into create_app() via
+#     bcrypt.init_app(app). This is a gap fix, not a version bump.
+#
+# SQLAlchemy and Werkzeug are pinned directly below even though they also
+# arrive transitively via Flask-SQLAlchemy/Flask. Found during a file-by-file
+# check of every import in app/ against the verified freeze: app/models/*.py,
+# app/main/utils.py, and app/main/__init__.py import `sqlalchemy` directly;
+# app/admin/helpers.py, app/auth/helpers.py, and app/models/user.py import
+# `werkzeug.security` directly. Pinning them here avoids relying on
+# Flask/Flask-SQLAlchemy's own transitive range to keep supplying a version
+# these direct imports are compatible with.
+#
+# NOT included: transformers, accelerate (TrOCR baseline tooling -- only
+# imported by app/inference/ocr_trocr.py, which is not imported anywhere else
+# in app/ and is not on create_app()'s import path) and ipywidgets /
+# widgetsnbextension (notebook labeling tools). None of these are in the
+# flask-app-venv freeze this file was built from. If local research work
+# still needs them, they belong in a separate requirements-dev.txt, not here.
+
+Flask==3.1.3
+Flask-Bcrypt==1.0.1
+Flask-Login==0.6.3
+Flask-Migrate==4.1.0
+Flask-SQLAlchemy==3.1.1
+Flask-WTF==1.3.0
+SQLAlchemy==2.0.51
+Werkzeug==3.1.8
+gunicorn==26.0.0
+Pillow==12.3.0
+python-dotenv==1.2.2
+
+# ML / OCR stack
+ultralytics==8.4.78
+paddlepaddle==3.3.1
+paddlex==3.7.2
+paddleocr==3.7.0
+opencv-contrib-python==4.10.0.84

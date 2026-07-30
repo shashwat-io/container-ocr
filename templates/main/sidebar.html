@@ -1,0 +1,25 @@
+<div class="list-group">
+    <a href="/" class="list-group-item list-group-item-action {% if request.path == '/' or request.path == '/index' %}active{% endif %}">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+    </a>
+    <a href="/upload" class="list-group-item list-group-item-action {% if request.path == '/upload' %}active{% endif %}">
+        <i class="fas fa-upload"></i> Upload Image
+    </a>
+    <a href="/records" class="list-group-item list-group-item-action {% if request.path == '/records' %}active{% endif %}">
+        <i class="fas fa-list"></i> Records
+    </a>
+    <a href="/export" class="list-group-item list-group-item-action {% if request.path == '/export' %}active{% endif %}">
+        <i class="fas fa-download"></i> Export CSV
+    </a>
+    {% if current_user.is_admin %}
+    <a href="/admin/dashboard" class="list-group-item list-group-item-action {% if request.path.startswith('/admin') and not request.path.startswith('/admin/users/pending') %}active{% endif %}">
+        <i class="fas fa-users-cog"></i> Admin
+    </a>
+    <a href="/admin/users/pending" class="list-group-item list-group-item-action {% if request.path.startswith('/admin/users/pending') %}active{% endif %}">
+        <i class="fas fa-user-clock"></i> Pending Approvals
+    </a>
+    {% endif %}
+    <a href="/auth/logout" class="list-group-item list-group-item-action text-danger">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</div>

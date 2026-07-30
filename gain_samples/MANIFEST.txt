@@ -1,0 +1,123 @@
+Gain samples (NEW invalid->valid results) — full image + pipeline crop (padding=10), NO OCR run
+
+Total gains: 118 | Sample: 12 (incomplete capped at 2)
+
+sample1
+  source image  : IMG_0501_ce_png_jpg.rf.c9b3f0bad3c8ef1bde48b3d35656cc65.jpg
+  box_idx       : 0 of 1
+  original bucket: incomplete
+  OLD raw result: CXN152319(0.86)
+  NEW claimed code: CXNU1523199
+  NEW confidence  : 0.85
+  tag           : Valid (docpp-off retry)
+  yolo box      : (231,30,483,249)  crop=(271, 238)
+
+sample2
+  source image  : Event20231020002956004-Avi_2920_jpg.rf.b366a0d999803a8746f7a57776559e98.jpg
+  box_idx       : 0 of 1
+  original bucket: incomplete
+  OLD raw result: 22G1(0.84)
+  NEW claimed code: TLLU3254828
+  NEW confidence  : 0.68
+  tag           : Valid (docpp-off retry)
+  yolo box      : (0,144,87,509)  crop=(106, 384)
+
+sample3
+  source image  : 2305812729909048674_0160_jpg.rf.4e35798fa5efaa1342ee1ed5c94d257a.jpg
+  box_idx       : 0 of 2
+  original bucket: separated
+  OLD raw result: 1HU 5106995(0.94) | 45G1(0.99)
+  NEW claimed code: TIHU5106995
+  NEW confidence  : 0.9199999999999999
+  tag           : Valid (docpp-off retry)
+  yolo box      : (235,207,381,449)  crop=(166, 262)
+
+sample4
+  source image  : Event20231020001956005-Avi_3320_jpg.rf.1c1d10d3a41c8ed61555f763f88d58c0.jpg
+  box_idx       : 0 of 1
+  original bucket: merged
+  OLD raw result: 0414821V32(0.62) | 26(0.31) | 12(0.44)
+  NEW claimed code: CMAU1284740
+  NEW confidence  : 0.8933333333333332
+  tag           : Valid (docpp-off retry)
+  yolo box      : (91,123,193,502)  crop=(121, 398)
+
+sample5
+  source image  : IMG_20221218_150316_region_jpg.rf.2bcab07863457bab95276a15cdafb1e3.jpg
+  box_idx       : 0 of 1
+  original bucket: remainder
+  OLD raw result: 15GN(0.71) | 9m(1.00) | 840981NX7(0.92)
+  NEW claimed code: CXNU1860482
+  NEW confidence  : 0.9966666666666667
+  tag           : Valid (docpp-off retry)
+  yolo box      : (95,0,588,632)  crop=(512, 652)
+
+sample6
+  source image  : IMG_20230101_153713_region_jpg.rf.67ae464ab9c41bbc1ffa534fb45be374.jpg
+  box_idx       : 0 of 1
+  original bucket: separated
+  OLD raw result: 195511(1.00) | CXNU(0.91) | 25G1(0.99)
+  NEW claimed code: XINU1955119
+  NEW confidence  : 0.9299999999999999
+  tag           : Valid (docpp-off retry)
+  yolo box      : (22,24,608,577)  crop=(606, 572)
+
+sample7
+  source image  : 6427132303892274193_0270_jpg.rf.be89aed792b915e1fea5d306e08717ff.jpg
+  box_idx       : 0 of 1
+  original bucket: merged
+  OLD raw result: 225115H11(0.61) | 1554(0.73) | 29m(0.79) | 9.6(1.00)
+  NEW claimed code: TIHU5115220
+  NEW confidence  : 0.9225
+  tag           : Valid (docpp-off retry)
+  yolo box      : (203,21,413,354)  crop=(230, 353)
+
+sample8
+  source image  : IMG_0541_ce_png_jpg.rf.5d87c1d8cd92e9b99088a50b4004ef6c.jpg
+  box_idx       : 0 of 1
+  original bucket: remainder
+  OLD raw result: 1P0L8LCNXN(0.80) | N(0.20) | 9',m(0.37)
+  NEW claimed code: EXNU1870414
+  NEW confidence  : 0.7833333333333333
+  tag           : Valid (docpp-off retry)
+  yolo box      : (105,127,532,413)  crop=(447, 305)
+
+sample9
+  source image  : Event20231020002956005-Avi_6380_jpg.rf.9a80a06e042536fa7cbe93ee9cce7a0c.jpg
+  box_idx       : 0 of 1
+  original bucket: separated
+  OLD raw result: 图(0.69) | 22G1(0.91) | 国(0.11) | 1LLU324828(0.85)
+  NEW claimed code: TLLU3254828
+  NEW confidence  : 0.6
+  tag           : Valid (docpp-off retry)
+  yolo box      : (235,144,341,518)  crop=(125, 394)
+
+sample10
+  source image  : IMG_20221218_145339_ce_png_jpg.rf.e2a156f350f0c51f286a82bf2b30a27b.jpg
+  box_idx       : 0 of 1
+  original bucket: merged
+  OLD raw result: NNG(0.77) | UXNU11Z1878(0.90)
+  NEW claimed code: UXNU1121875
+  NEW confidence  : 0.9266666666666667
+  tag           : Valid (docpp-off retry)
+  yolo box      : (92,71,608,429)  crop=(535, 377)
+
+sample11
+  source image  : 1480134690284023198_0130_jpg.rf.ff3bbc9ba0e8d23f8f1436ee0a516e2f.jpg
+  box_idx       : 0 of 1
+  original bucket: remainder
+  OLD raw result: 018088880(0.68) | 33(1.00) | 9'6(0.87) | 2,9m(0.99) | 155(0.61)
+  NEW claimed code: CBHU8805106
+  NEW confidence  : 0.9359999999999999
+  tag           : Valid (docpp-off retry)
+  yolo box      : (223,42,384,311)  crop=(180, 288)
+
+sample12
+  source image  : 2653019812896645507_0320_jpg.rf.05ad869156231b98707b46d2b21f48de.jpg
+  box_idx       : 0 of 1
+  original bucket: separated
+  OLD raw result: 45G1(0.99) | T1HU5107374(0.97)
+  NEW claimed code: TIHU5107374
+  NEW confidence  : 0.98
+  tag           : Valid (docpp-off retry)
+  yolo box      : (204,27,424,441)  crop=(239, 433)

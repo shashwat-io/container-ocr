@@ -1,0 +1,295 @@
+--- a/app/inference/ocr.py
++++ b/app/inference/ocr.py
+@@ -16,6 +16,44 @@
+ # back to; this must be explicitly set to change production behavior.
+ FINETUNED_REC_MODEL_DIR = os.environ.get('FINETUNED_REC_MODEL_DIR', '')
+ 
++# Which text recognizer the cascade runs on. 'paddle' (the default) leaves
++# every code path in this module byte-identical to what production has always
++# run -- same safety contract as FINETUNED_REC_MODEL_DIR above. 'trocr' swaps
++# ONLY the recognizer call inside run_ocr_on_crop(); cropping, _post_process,
++# rotation selection, the entire tier cascade and validation are deliberately
++# left untouched, because that is exactly the configuration
++# benchmark_trocr_cascade_quicksample.py measured. Changing anything else
++# breaks the correspondence between the benchmark numbers and production.
++#
++# READ LAZILY, NOT AT IMPORT TIME. This used to be a module-level constant:
++#
++#     OCR_RECOGNIZER = os.environ.get('OCR_RECOGNIZER', 'paddle').strip().lower()
++#
++# which silently coupled correctness to import ORDER -- identical failure mode
++# to FINETUNED_TROCR_MODEL_DIR's pre-fix history in ocr_trocr.py
++# (_resolve_checkpoint_dir). This module is imported lazily, inside
++# predictor.py's _real_predict(), on a worker's first real inference request --
++# a Flask/gunicorn deployment cannot guarantee the environment a worker sees at
++# that moment matches its environment a moment later. If a worker's first
++# import happened to see a stale/default environment, the constant froze at
++# 'paddle' for that worker's entire remaining lifetime, with no exception, no
++# warning, and no way to notice short of comparing /proc/<pid>/environ against
++# logged behavior after the fact. Resolving inside a function call at each use
++# removes the dependency on import timing entirely -- see get_recognizer()
++# below, and the diagnostic log line in extract_container_code() that makes
++# the resolved value visible in gunicorn.log without needing that comparison.
++def get_recognizer():
++    """Which text recognizer to use, resolved fresh on every call."""
++    value = os.environ.get('OCR_RECOGNIZER', 'paddle').strip().lower()
++    if value not in ('paddle', 'trocr'):
++        raise ValueError(
++            f"OCR_RECOGNIZER must be 'paddle' or 'trocr', got {value!r}. "
++            "Refusing to guess: an unrecognised value quietly falling back to "
++            "'paddle' is precisely how a TrOCR deployment ends up serving "
++            "PaddleOCR without anyone noticing."
++        )
++    return value
++
+ # ISO 6346 character value table (letters skip multiples of 11).
+ # Placed at module level so both validate_iso6346 and _compute_check_digit share it.
+ _ISO6346_VALUE_MAP: dict = {
+@@ -163,6 +201,39 @@
+ 
+ 
+ def run_ocr_on_crop(crop_image, docpp_off=False):
++    # ── TrOCR backend ────────────────────────────────────────────────────────
++    # This block must reproduce benchmark_trocr_cascade_quicksample.py's
++    # _run_trocr_as_ocr_line EXACTLY. Two details look incidental and are not:
++    #
++    #   * returning [] on empty text -- drives the 'No text detected' early
++    #     return in _try_extract, and the 0.0 avg_conf that lets
++    #     _best_portrait_rotation prefer whichever rotation produced output;
++    #   * the literal 1.0 -- any other value changes that same function's
++    #     confidence tiebreak and silently de-calibrates every benchmark
++    #     number this backend was validated against.
++    #
++    # 1.0 is a PLACEHOLDER, not a confidence: TrOCR exposes no per-result
++    # score comparable to Paddle's rec_scores. Never threshold on it and never
++    # compare it against a PaddleOCR confidence figure from another run. Note
++    # the consequence inside _best_portrait_rotation: because every non-empty
++    # result scores 1.0, its `conf_90 >= conf_m90` tiebreak is always true, so
++    # once the validity ranks tie, rotation choice collapses to "always prefer
++    # +90". That is the measured behaviour, not a regression -- but it is not
++    # confidence-driven, whatever the variable names suggest.
++    #
++    # docpp_off is accepted and deliberately IGNORED: it toggles a
++    # PaddleX-internal doc-orientation/unwarping stage with no TrOCR
++    # equivalent. See the guard in _try_extract_best_valid.
++    if get_recognizer() == 'trocr':
++        # Imported lazily rather than at module top: ocr_trocr imports
++        # clean_ocr_text/validate_iso6346 from THIS module, so a top-level
++        # import here would be circular.
++        from app.inference.ocr_trocr import run_trocr_on_crop
++        text = run_trocr_on_crop(crop_image)
++        if not text.strip():
++            return []
++        return [(text, 1.0)]
++
+     ocr = get_ocr()
+     crop_np = np.array(crop_image)
+     # OCRPipeline.predict() is a generator — inference runs lazily on iteration.
+@@ -411,6 +482,20 @@
+         best_valid = False
+         best_reason = "Ambiguous merge — multiple checksum-valid candidates, none auto-accepted"
+ 
++    if best_valid and get_recognizer() == 'trocr':
++        # Manual ground-truth review (28-07-2026, TrOCR FULL benchmark,
++        # thin cap=3 checkpoint) found 0/3 confirmed-correct among every
++        # genuine Tier 3 pass reproduced from that run — consistent with
++        # every prior Tier 3 ground-truth check on either recognizer (Paddle
++        # Pass 1: 0 confirmed correct; Pass 2: 17/21, 81% wrong). A
++        # checksum-passing window over concatenated, cross-box merged text
++        # carries no per-line confidence to gate on, so under TrOCR this
++        # tier never auto-accepts — it always reports invalid for manual
++        # correction, regardless of what validate_iso6346() found. Paddle's
++        # Tier 3 path is untouched by this gate.
++        best_valid = False
++        best_reason = "Tier 3 disabled for TrOCR — never auto-accepted (see manual ground-truth review)"
++
+     # ── Tier 4: single-position character-confusion correction ────────────────
+     if not best_valid and len(best_code) == 11:
+         violations = []
+@@ -454,6 +539,33 @@
+     code, valid, reason, raw, conf = _try_extract(crop)
+     if valid:
+         return code, valid, reason, raw, conf
++
++    # ⚠ ASSERTED FROM CODE READING, NOT YET EMPIRICALLY CONFIRMED. ⚠
++    #
++    # Under the TrOCR backend the docpp-off retry cannot change the outcome:
++    # run_ocr_on_crop ignores docpp_off entirely (there is no TrOCR equivalent
++    # of PaddleX's doc-orientation/unwarping stage), so the second _try_extract
++    # re-runs generation on the same pixels and reproduces pass 1 exactly.
++    # Skipping it therefore removes dead compute -- 2 TrOCR generate calls per
++    # landscape box and 4 per portrait box (2 rotations x 2 passes) on every
++    # crop that fails to validate -- without altering a single returned value.
++    #
++    # Supporting evidence, which is suggestive but NOT proof: the
++    # 'docpp-off-retry' tier label appears in every PaddleOCR benchmark run and
++    # in none of the TrOCR runs, i.e. the retry has never once rescued a TrOCR
++    # crop. That is consistent with the claim but does not establish it --
++    # absence of a *successful* retry is weaker than absence of a *differing*
++    # retry, since the tier counter only tallies valid results.
++    #
++    # BEFORE TRUSTING THIS: run the full cascade benchmark once with this guard
++    # active and once without, on the same checkpoint, and diff the two result
++    # CSVs. They must be byte-identical apart from runtime. Until that diff
++    # exists, treat this as an optimisation on probation -- if anything here is
++    # wrong, it is wrong silently, by dropping a retry that would have
++    # validated.
++    if get_recognizer() == 'trocr':
++        return code, valid, reason, raw, conf
++
+     code2, valid2, reason2, raw2, conf2 = _try_extract(crop, docpp_off=True)
+     if valid2:
+         # Preserve whether the retry's own result was recovery-based,
+@@ -523,9 +635,14 @@
+         crop = crop_detection(image_bytes, x1, y1, x2, y2)
+         w, h = crop.size
+         is_portrait = h > w
++        # Resolved and logged on every call so a stale-import mismatch (the
++        # module reading a different OCR_RECOGNIZER than the environment
++        # currently holds) is visible in gunicorn.log immediately, rather
++        # than requiring a /proc/<pid>/environ comparison after the fact to
++        # even notice something is wrong.
+         logger.info(
+-            "OCR start: bbox=(%.1f,%.1f,%.1f,%.1f) crop=%dx%d %s",
+-            x1, y1, x2, y2, w, h, 'portrait' if is_portrait else 'landscape'
++            "OCR start: bbox=(%.1f,%.1f,%.1f,%.1f) crop=%dx%d %s recognizer=%s",
++            x1, y1, x2, y2, w, h, 'portrait' if is_portrait else 'landscape', get_recognizer()
+         )
+ 
+         if is_portrait:
+--- a/app/inference/ocr_trocr.py
++++ b/app/inference/ocr_trocr.py
+@@ -40,12 +40,45 @@
+ # weights are swapped -- avoids re-triggering the fast-tokenizer bug
+ # documented in get_trocr() below if the checkpoint dir carries its own
+ # copied-over (identically broken) tokenizer files.
+-FINETUNED_TROCR_MODEL_DIR = os.environ.get('FINETUNED_TROCR_MODEL_DIR', '')
++#
++# READ LAZILY, NOT AT IMPORT TIME. This used to be a module-level constant:
++#
++#     FINETUNED_TROCR_MODEL_DIR = os.environ.get('FINETUNED_TROCR_MODEL_DIR', '')
++#
++# which silently coupled correctness to import ORDER. The benchmark scripts get
++# away with it by setting os.environ before their first import (see
++# benchmark_trocr_cascade_quicksample.py, which sets it above even `import
++# csv`), but a Flask app cannot guarantee that ordering. If this module were
++# imported before the env var was set, model_source fell back to TROCR_MODEL_ID
++# and production served the ZERO-SHOT BASE MODEL -- with no exception, no
++# warning, and output plausible enough to pass casual inspection. Resolving the
++# value inside get_trocr() removes the ordering dependency entirely.
++def _resolve_checkpoint_dir():
++    """Checkpoint dir from the environment, resolved at call time."""
++    return os.environ.get('FINETUNED_TROCR_MODEL_DIR', '').strip()
+ 
+ _trocr_instance = None  # (processor, model, device) tuple
+ # Mirrors app/inference/ocr.py's _ocr_lock pattern: serialise access to the
+ # lazily-initialised singleton so concurrent callers don't double-init or
+ # race on the underlying torch model's forward-pass buffers.
++#
++# This lock now guards BOTH lazy init (get_trocr) and inference
++# (run_trocr_on_crop's model.generate call). Previously it covered only init,
++# leaving generate() to run concurrently across gunicorn's worker threads on a
++# single shared VisionEncoderDecoderModel.
++#
++# Serialising inference is a deliberate choice, not caution about correctness:
++# the deployment runs gunicorn with --threads 4, and a single TrOCR generate
++# already saturates the CPU on this box (~650% of 8 cores was measured for one
++# cascade process). Four concurrent generates cannot go faster than four serial
++# ones on a saturated CPU -- they would only multiply peak resident memory
++# across a ~1.3 GB model's activations and risk memory pressure for no
++# throughput gain. Queueing is the better failure mode than thrashing.
++#
++# ⚠ HAZARD: threading.Lock is NOT reentrant. run_trocr_on_crop must call
++# get_trocr() BEFORE acquiring this lock, never inside it -- nesting the two
++# acquisitions self-deadlocks the worker thread on first use. If you ever need
++# them nested, switch this to threading.RLock() in the same commit.
+ _trocr_lock = threading.Lock()
+ 
+ 
+@@ -70,19 +103,52 @@
+                 image_processor = ViTImageProcessor.from_pretrained(TROCR_MODEL_ID)
+                 processor = TrOCRProcessor(image_processor=image_processor, tokenizer=tokenizer)
+ 
+-                model_source = FINETUNED_TROCR_MODEL_DIR or TROCR_MODEL_ID
++                checkpoint_dir = _resolve_checkpoint_dir()
++
++                # Fail fast rather than silently degrading. A configured-but-
++                # missing checkpoint dir previously fell through to the hub ID
++                # and served the zero-shot base model; the benchmark harness
++                # guards against exactly this with its own sys.exit (see
++                # benchmark_trocr_cascade_quicksample.py), and production had
++                # no equivalent. An explicit crash at startup is far cheaper
++                # than discovering weeks of degraded reads after the fact.
++                if checkpoint_dir and not os.path.isdir(checkpoint_dir):
++                    raise FileNotFoundError(
++                        f"FINETUNED_TROCR_MODEL_DIR is set to {checkpoint_dir!r} "
++                        "but that directory does not exist. Refusing to fall "
++                        f"back to the zero-shot base model ({TROCR_MODEL_ID}) "
++                        "silently -- fix the path or unset the variable to "
++                        "request the base model deliberately."
++                    )
++
++                model_source = checkpoint_dir or TROCR_MODEL_ID
+                 model = VisionEncoderDecoderModel.from_pretrained(model_source)
+                 model.eval()
+ 
+                 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+                 model.to(device)
+ 
+-                if FINETUNED_TROCR_MODEL_DIR:
+-                    logger.info(f"get_trocr: FINETUNED_TROCR_MODEL_DIR set -- loaded weights from "
+-                                f"{FINETUNED_TROCR_MODEL_DIR} (tokenizer/image_processor still from "
+-                                f"{TROCR_MODEL_ID}) on device={device}")
++                # Always name the resolved weights source and say plainly which
++                # of the two modes we are in. The silent-base-model failure this
++                # guards against is invisible in output -- the model still
++                # returns confident-looking text -- so it needs a log line that
++                # states the mode outright rather than one that has to be
++                # inferred from the presence or absence of a path.
++                if checkpoint_dir:
++                    logger.info(
++                        "get_trocr: recognizer=FINE-TUNED checkpoint | "
++                        "weights=%s | tokenizer/image_processor=%s (hub) | device=%s",
++                        checkpoint_dir, TROCR_MODEL_ID, device,
++                    )
+                 else:
+-                    logger.info(f"get_trocr: loaded {TROCR_MODEL_ID} on device={device}")
++                    logger.warning(
++                        "get_trocr: recognizer=HUB BASE MODEL (ZERO-SHOT, NOT "
++                        "fine-tuned) | weights=%s | device=%s -- "
++                        "FINETUNED_TROCR_MODEL_DIR is unset. If this is a "
++                        "production deployment, this is almost certainly wrong: "
++                        "accuracy will be far below every benchmarked figure.",
++                        TROCR_MODEL_ID, device,
++                    )
+                 _trocr_instance = (processor, model, device)
+     return _trocr_instance
+ 
+@@ -107,12 +173,22 @@
+     decoded text (str), stripped. No ISO 6346 validation, no tiered
+     recovery logic -- this is a zero-shot text-recognition baseline only.
+     """
++    # get_trocr() acquires _trocr_lock for lazy init, so it MUST be called
++    # before we take the lock ourselves -- threading.Lock is not reentrant and
++    # nesting these would self-deadlock on the very first request. See the
++    # hazard note at the _trocr_lock definition.
+     processor, model, device = get_trocr()
+-    pixel_values = processor(images=crop_image.convert('RGB'), return_tensors="pt").pixel_values
+-    pixel_values = pixel_values.to(device)
+-    with torch.no_grad():
+-        generated_ids = model.generate(pixel_values)
+-    text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
++
++    # Serialise inference across gunicorn's worker threads: one generate
++    # already saturates this CPU, so concurrency buys no throughput and only
++    # multiplies peak memory. Held across preprocessing, generate and decode so
++    # a single request's tensors are not interleaved with another's.
++    with _trocr_lock:
++        pixel_values = processor(images=crop_image.convert('RGB'), return_tensors="pt").pixel_values
++        pixel_values = pixel_values.to(device)
++        with torch.no_grad():
++            generated_ids = model.generate(pixel_values)
++        text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
+     return text.strip()
+ 
+ 

@@ -1,0 +1,20 @@
+Loading TrOCR + YOLO...
+Ready.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights: 100%|██████████| 480/480 [00:00<00:00, 7437.40it/s]
+Event20231020100456005-Avi_3965_jpg.rf.632625046b01e7ea5311c4298ee5cab3.jpg
+  expected code (unchanged): BMOU8359431  got: NYKU8661321  match=False
+  is_valid: False  (expected False)  reason: Check digit mismatch: expected 5, got 1
+  RESULT: FAIL
+
+IMG_0960_region_JPG_jpg.rf.db49285e93ebf8a15860ab4c8b339110.jpg
+  expected code (unchanged): ZCSU3272002  got: ZCSU3272002  match=True
+  is_valid: False  (expected False)  reason: Tier 3 disabled for TrOCR — never auto-accepted (see manual ground-truth review)
+  RESULT: PASS
+
+z4944210696040_9b9a08ff91d574e1a136ed57f30341d7_jpg.rf.0b1a868a89dd112422b86a0045d9257e.jpg
+  expected code (unchanged): TCLU8662927  got: VSCU8901921  match=False
+  is_valid: False  (expected False)  reason: Check digit mismatch: expected 6, got 1
+  RESULT: FAIL
+
+=== OVERALL: FAILURE -- see above ===

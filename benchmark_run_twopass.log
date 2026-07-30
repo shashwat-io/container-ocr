@@ -1,0 +1,41 @@
+Found 786 images
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[50/786] 438s elapsed | avg 8.8s/img | valid so far: 45
+[100/786] 1006s elapsed | avg 10.1s/img | valid so far: 102
+[150/786] 1331s elapsed | avg 8.9s/img | valid so far: 147
+[200/786] 1767s elapsed | avg 8.8s/img | valid so far: 191
+[250/786] 2140s elapsed | avg 8.6s/img | valid so far: 240
+[300/786] 2483s elapsed | avg 8.3s/img | valid so far: 285
+[350/786] 2941s elapsed | avg 8.4s/img | valid so far: 308
+[400/786] 3767s elapsed | avg 9.4s/img | valid so far: 339
+[450/786] 4577s elapsed | avg 10.2s/img | valid so far: 364
+[500/786] 5212s elapsed | avg 10.4s/img | valid so far: 401
+[550/786] 5817s elapsed | avg 10.6s/img | valid so far: 430
+[600/786] 6323s elapsed | avg 10.5s/img | valid so far: 462
+[650/786] 6767s elapsed | avg 10.4s/img | valid so far: 492
+[700/786] 7271s elapsed | avg 10.4s/img | valid so far: 533
+[750/786] 7808s elapsed | avg 10.4s/img | valid so far: 576
+
+=== BENCHMARK RESULTS ===
+Total images:     786
+YOLO detected:    786 (100.0%)
+OCR read code:    816 (103.8% of detected)
+ISO 6346 valid:   610 (77.6% of detected)
+No detection:     0 (0.0%)
+Total time:       8302s | Avg per image: 10.6s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/benchmark_results.csv

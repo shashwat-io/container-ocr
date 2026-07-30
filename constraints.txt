@@ -1,0 +1,32 @@
+# Companion to requirements.txt -- the two files are meant to always be used
+# together, never requirements.txt alone:
+#     pip install -r requirements.txt -c constraints.txt
+#
+# Blocks opencv-python and opencv-python-headless from ever being installed
+# alongside opencv-contrib-python in this app's environment.
+#
+# Why: paddleocr requires paddlex[ocr-core], which hard-pins
+# opencv-contrib-python==4.10.0.84 unconditionally for OCR use -- there is no
+# way to install paddleocr without it. ultralytics separately declares
+# opencv-python>=4.6.0, a different pip package name pip has no way to know
+# is redundant. Checked installed source of paddlex, paddleocr, ultralytics,
+# and this app's own code (22-07-2026): zero usage of any opencv_contrib-
+# exclusive API (ximgproc, bgsegm, xfeatures2d, etc.) anywhere, so
+# opencv-contrib-python's cv2 (a strict superset) satisfies all of them.
+#
+# All opencv-* variants install into the same `cv2` import namespace and can
+# partially overwrite each other's files depending on install order -- this
+# exact conflict (opencv-python + opencv-contrib-python both installed) broke
+# cv2/ultralytics imports once already, on 07-10-2026.
+#
+# These pins target a version that does not exist on PyPI for these two
+# packages, so if some future dependency change tries to pull either one in,
+# `pip install` fails LOUDLY with a resolution error instead of silently
+# installing a second/third opencv variant.
+#
+# If you hit that error: install ultralytics with `--no-deps` as a separate
+# step (its only unmet dependency at that point is opencv-python, which
+# opencv-contrib-python already satisfies at runtime) rather than removing
+# this constraint.
+opencv-python==0.0.0.dev0
+opencv-python-headless==0.0.0.dev0

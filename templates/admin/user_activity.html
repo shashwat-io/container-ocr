@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity - Container Scanning System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .user-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .activity-list { background: white; border-radius: 8px; overflow: hidden; }
+        .activity-header { padding: 15px; border-bottom: 2px solid #dee2e6; background: #f8f9fa; }
+        .activity-item { padding: 15px; border-bottom: 1px solid #dee2e6; }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-item:hover { background: #f8f9fa; }
+        .activity-date { color: #666; font-size: 14px; }
+        .activity-field { font-weight: bold; color: #333; }
+        .activity-old-value { color: #dc3545; }
+        .activity-new-value { color: #28a745; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-secondary { background: #6c757d; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Activity Log for {{ user.username }}</h1>
+            <p><a href="/admin/users/{{ user.id }}/edit" class="btn btn-secondary">Back to Edit User</a></p>
+        </div>
+
+        <div class="user-info">
+            <h3>User Details</h3>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>User ID:</strong> {{ user.id }}</p>
+        </div>
+
+        <div class="activity-list">
+            <div class="activity-header">
+                <h2>Recent Activity</h2>
+            </div>
+            {% if upload_logs or detections_logs %}
+                {% for log in upload_logs %}
+                    <div class="activity-item">
+                        <div class="activity-date">{{ log.changed_at | to_ist }}</div>
+                        <div>
+                            <span class="activity-field">{{ log.field_name }}</span>
+                            {% if log.old_value != log.new_value %}
+                                <span class="activity-old-value">From: {{ log.old_value }}</span> →
+                                <span class="activity-new-value">To: {{ log.new_value }}</span>
+                            {% else %}
+                                <span class="activity-new-value">Changed to: {{ log.new_value }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for log in detections_logs %}
+                    <div class="activity-item">
+                        <div class="activity-date">{{ log.changed_at | to_ist }}</div>
+                        <div>
+                            <span class="activity-field">{{ log.field_name }} ({{ log.table_name }})</span>
+                            {% if log.old_value != log.new_value %}
+                                <span class="activity-old-value">From: {{ log.old_value }}</span> →
+                                <span class="activity-new-value">To: {{ log.new_value }}</span>
+                            {% else %}
+                                <span class="activity-new-value">Changed to: {{ log.new_value }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="activity-item">
+                    <p>No activity found for this user.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

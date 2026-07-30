@@ -1,0 +1,33 @@
+# Secrets
+.env
+deploy/.env.production
+# .env.example is intentionally NOT ignored — it's a template
+
+# Datasets
+data/
+container.v2i.yolov11/
+container.v2i.yolov11.resplit/
+
+# Model weights
+models/*.pt
+
+# TrOCR checkpoint output (deleted locally; ignored in case a future pull restores it)
+trocr_finetune_output/
+
+# Sibling backup directories (outside the project root today; ignored defensively
+# in case they're ever nested inside it)
+/container_ocr_test_BACKUP_*/
+/downloads_checkpoints_archive/
+
+instance/app.db
+.claude/settings.local.json
+
+# Python / OS cruft
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Stray zip files at project root
+/*.zip

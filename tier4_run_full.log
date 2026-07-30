@@ -1,0 +1,54 @@
+================ TIER 4 BENCHMARK — STARTUP VERIFICATION ================
+Process PID:        35862
+Start timestamp:    2026-06-30T13:41:07.616944+05:30
+ocr.py abs path:    /home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py
+ocr.py mtime:       2026-06-30T12:38:19.483618+05:30
+imported __file__:  /home/shashwatkumar/Testing/container_ocr_test/app/inference/ocr.py
+marker searched:    'Valid (character confusion corrected'
+marker present:     True
+FRESH CODE CONFIRMED
+========================================================================
+
+>>> Handing off to benchmark.py ...
+
+Found 786 images
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/benchmark.py:31: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[50/786] 369s elapsed | avg 7.4s/img | valid so far: 36
+[100/786] 849s elapsed | avg 8.5s/img | valid so far: 82
+[150/786] 1128s elapsed | avg 7.5s/img | valid so far: 124
+[200/786] 1460s elapsed | avg 7.3s/img | valid so far: 160
+[250/786] 1781s elapsed | avg 7.1s/img | valid so far: 205
+[300/786] 2091s elapsed | avg 7.0s/img | valid so far: 246
+[350/786] 2458s elapsed | avg 7.0s/img | valid so far: 267
+[400/786] 2917s elapsed | avg 7.3s/img | valid so far: 287
+[450/786] 3281s elapsed | avg 7.3s/img | valid so far: 300
+[500/786] 3679s elapsed | avg 7.4s/img | valid so far: 331
+[550/786] 4027s elapsed | avg 7.3s/img | valid so far: 356
+[600/786] 4313s elapsed | avg 7.2s/img | valid so far: 380
+[650/786] 4607s elapsed | avg 7.1s/img | valid so far: 403
+[700/786] 4897s elapsed | avg 7.0s/img | valid so far: 428
+[750/786] 5198s elapsed | avg 6.9s/img | valid so far: 464
+
+=== BENCHMARK RESULTS ===
+Total images:     786
+YOLO detected:    786 (100.0%)
+OCR read code:    814 (103.6% of detected)
+ISO 6346 valid:   492 (62.6% of detected)
+No detection:     0 (0.0%)
+Total time:       5535s | Avg per image: 7.0s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/benchmark_results.csv

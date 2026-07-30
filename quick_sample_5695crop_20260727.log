@@ -1,0 +1,33 @@
+Loading TrOCR from checkpoint: /home/shashwatkumar/Downloads/trocr_final_checkpoint_5695crop
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights: 100%|██████████| 480/480 [00:00<00:00, 8561.95it/s]
+TrOCR loaded on device=cpu
+Found 157 images (model=models/best_resplit.pt, test_dir=/home/shashwatkumar/Testing/container_ocr_test/container.v2i.yolov11.resplit/test/images, sample_file=quick_sample_set_resplit.txt)
+[CHECKPOINT 25/157] 228s elapsed | avg 9.1s/img | pass so far: 14 | fail so far: 14 | tiers: Tier1-exact:11, Tier1b-recovery:1, Tier3-fallback-novalid:2 | checkpoint CSV written (28 rows)
+[CHECKPOINT 50/157] 450s elapsed | avg 9.0s/img | pass so far: 30 | fail so far: 23 | tiers: Tier1-exact:23, Tier1b-recovery:3, Tier3-fallback-novalid:4 | checkpoint CSV written (53 rows)
+[CHECKPOINT 75/157] 650s elapsed | avg 8.7s/img | pass so far: 46 | fail so far: 32 | tiers: Tier1-exact:34, Tier1b-recovery:6, Tier3-fallback-novalid:6 | checkpoint CSV written (78 rows)
+[CHECKPOINT 100/157] 825s elapsed | avg 8.3s/img | pass so far: 62 | fail so far: 41 | tiers: Tier1-exact:45, Tier1b-recovery:9, Tier3-fallback-novalid:8 | checkpoint CSV written (103 rows)
+[CHECKPOINT 125/157] 1003s elapsed | avg 8.0s/img | pass so far: 83 | fail so far: 45 | tiers: Tier1-exact:62, Tier1b-recovery:11, Tier3-fallback-novalid:10 | checkpoint CSV written (128 rows)
+[CHECKPOINT 150/157] 1239s elapsed | avg 8.3s/img | pass so far: 95 | fail so far: 61 | tiers: Tier1-exact:71, Tier1b-recovery:13, Tier3-fallback-novalid:11 | checkpoint CSV written (156 rows)
+[CHECKPOINT 157/157] 1314s elapsed | avg 8.4s/img | pass so far: 100 | fail so far: 66 | tiers: Tier1-exact:72, Tier1b-recovery:13, Tier3-fallback-novalid:15 | checkpoint CSV written (166 rows)
+
+=== BENCHMARK RESULTS (TrOCR FINE-TUNED CASCADE, QUICK SAMPLE) ===
+YOLO model:       models/best_resplit.pt
+TrOCR checkpoint: /home/shashwatkumar/Downloads/trocr_final_checkpoint_5695crop
+Sample file:      quick_sample_set_resplit.txt
+Total images:     157
+Total rows:       166 (rows > images when any image has >1 YOLO box)
+YOLO detected:    155 (98.7% of images)
+OCR read code:    164 (105.8% of detected)
+ISO 6346 valid (rows/rows, per CLAUDE.md convention): 100/166 = 60.2%
+ISO 6346 valid (valid/images, NOT the convention -- for reference only): 100/157 = 63.7%
+No detection:     2 (1.3%)
+
+--- Tier breakdown (passing rows only) ---
+  Tier1-exact: 72
+  Tier3-fallback-novalid: 15
+  Tier1b-recovery: 13
+
+Total time:       1314s | Avg per image: 8.4s
+Results saved to: /home/shashwatkumar/Testing/container_ocr_test/quick_sample_5695crop_20260727.csv
+RUN COMPLETED UNINTERRUPTED

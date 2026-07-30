@@ -1,0 +1,44 @@
+Loaded 157 images from /home/shashwatkumar/Testing/container_ocr_test/quick_sample_set.txt
+/home/shashwatkumar/Testing/container_ocr_test/scratch_quick_sample_tier1b_verification.py:110: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[32mCreating model: ('PP-LCNet_x1_0_doc_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_doc_ori`.[0m
+/home/shashwatkumar/.local/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[32mCreating model: ('UVDoc', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/UVDoc`.[0m
+[32mCreating model: ('PP-LCNet_x1_0_textline_ori', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-LCNet_x1_0_textline_ori`.[0m
+[32mCreating model: ('PP-OCRv6_medium_det', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_det`.[0m
+[32mCreating model: ('PP-OCRv6_medium_rec', None, None)[0m
+[32mModel files already exist. Using cached files. To redownload, please delete the directory manually: `/home/shashwatkumar/.paddlex/official_models/PP-OCRv6_medium_rec`.[0m
+/home/shashwatkumar/Testing/container_ocr_test/scratch_quick_sample_tier1b_verification.py:110: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  img_np = np.array(img_pil)
+[CHECKPOINT 25/157] 255s elapsed | avg 10.2s/img | pass so far: 26 | fail so far: 5 | recovery-based so far: 9 | tiers: Tier1-exact:9, Tier1b-recovery:8, Tier3-fallback-novalid:3, Tier4-confusion:6 | checkpoint CSV written (31 rows)
+[CHECKPOINT 50/157] 461s elapsed | avg 9.2s/img | pass so far: 50 | fail so far: 6 | recovery-based so far: 15 | tiers: Tier1-exact:24, Tier1b-recovery:15, Tier2-exact:1, Tier3-fallback-novalid:4, Tier4-confusion:6 | checkpoint CSV written (56 rows)
+[CHECKPOINT 75/157] 632s elapsed | avg 8.4s/img | pass so far: 66 | fail so far: 16 | recovery-based so far: 19 | tiers: Tier1-exact:34, Tier1b-recovery:19, Tier2-exact:1, Tier3-fallback-novalid:4, Tier4-confusion:8 | checkpoint CSV written (82 rows)
+[CHECKPOINT 100/157] 919s elapsed | avg 9.2s/img | pass so far: 81 | fail so far: 26 | recovery-based so far: 20 | tiers: Tier1-exact:42, Tier1b-recovery:19, Tier2-exact:1, Tier2-recovery:1, Tier3-fallback-novalid:8, Tier4-confusion:10 | checkpoint CSV written (107 rows)
+[CHECKPOINT 125/157] 1103s elapsed | avg 8.8s/img | pass so far: 91 | fail so far: 41 | recovery-based so far: 26 | tiers: Tier1-exact:45, Tier1b-recovery:24, Tier2-exact:1, Tier2-recovery:2, Tier3-fallback-novalid:8, Tier4-confusion:11 | checkpoint CSV written (132 rows)
+[CHECKPOINT 150/157] 1348s elapsed | avg 9.0s/img | pass so far: 111 | fail so far: 48 | recovery-based so far: 42 | tiers: Tier1-exact:49, Tier1b-recovery:36, Tier2-exact:2, Tier2-recovery:3, Tier3-fallback-novalid:10, Tier4-confusion:11 | checkpoint CSV written (159 rows)
+[CHECKPOINT 157/157] 1453s elapsed | avg 9.3s/img | pass so far: 116 | fail so far: 53 | recovery-based so far: 47 | tiers: Tier1-exact:50, Tier1b-recovery:39, Tier2-exact:2, Tier2-recovery:3, Tier3-fallback-novalid:11, Tier4-confusion:11 | checkpoint CSV written (169 rows)
+
+=== QUICK-SAMPLE BENCHMARK RESULTS (157-image, is_recovery_based verification) ===
+Total images:        157
+YOLO detected:       157 (100.0%)
+OCR read code:       163 (103.8% of detected)
+ISO 6346 valid:      116 / 157
+No detection:        0 (0.0%)
+Recovery-based:      47 / 116 valid rows (40.5%)
+
+--- Tier breakdown (passing rows only) ---
+  Tier1-exact: 50
+  Tier1b-recovery: 39
+  Tier3-fallback-novalid: 11
+  Tier4-confusion: 11
+  Tier2-recovery: 3
+  Tier2-exact: 2
+
+Total time:          1453s | Avg per image: 9.3s
+Results saved to:    /home/shashwatkumar/Testing/container_ocr_test/quick_sample_tier1b_verification.csv
+RUN COMPLETED UNINTERRUPTED
